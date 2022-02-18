@@ -8,11 +8,12 @@
   },
   "devDependencies": {
     "vuepress": "1.8.2",
-    "vuepress-plugin-cursor-effects": "^1.1.2",
     "vuepress-theme-reco": "1.6.10"
   },
   "description": "blog-use-Obsidian",
   "dependencies": {
+    "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
+    "vuepress-plugin-nuggets-style-copy": "^1.0.3",
     "vuepress-plugin-sitemap": "^2.3.1"
   }
 }

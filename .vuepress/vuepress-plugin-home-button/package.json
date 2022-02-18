@@ -1,0 +1,11 @@
+{
+  "name": "vuepress-plugin-home-button",
+  "version": "1.0.0",
+  "description": "home button",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
