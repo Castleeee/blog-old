@@ -7,5 +7,6 @@ module.exports = (options, ctx) => {
         async ready() {
             console.log('Using Self Home Button');
         }
+
     }
 }

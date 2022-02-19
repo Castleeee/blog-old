@@ -23,5 +23,6 @@ module.exports=[
     ],
     [
         require('./vuepress-plugin-home-button'),//自定义插件引入方式
-    ]
+    ],
+    ["@vuepress/plugin-toc@next",]
 ]

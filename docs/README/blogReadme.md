@@ -81,8 +81,8 @@ tags:
 ```
 
 大标题栏的子标题类似[文档](https://vuepress-theme-reco.recoluan.com/views/plugins/comments.html#vssue)这样  
-侧边栏可以分组，children里面是可以进行一个娃的套的,例子已经注释了起来，sidebarDepth默认设置4就行
-
+侧边栏可以分组，children里面是可以进行一个娃的套的,例子已经注释了起来，sidebarDepth默认设置4就行  
+套娃也不能按文件夹套，无法设置路径，只能在一个文件夹里手动分
 ## 插件
 插件都是文档上给的，插件一定要["plugins",{attribute:aaa}]这样引入，否则报错
 #### 评论
@@ -102,11 +102,13 @@ tags:
     - 直接写了个插件解决的[^3]，放在了包里
 - 插件，层级目录独立出js来
 - index.styl和palette.styl样式文件修改css
-    -  二级标题添加anchor前标
+    - 二级标题添加anchor前标
     - 调整侧边栏字号
+    - 自定义介绍页面的CSS去掉标题栏[^4]
 - 写个脚本兼容语法
 
 
 [^1]: [vuepress-theme-reco主题优化 | 小弋の阅览室](https://lovelijunyi.gitee.io/blog/blogs/vuepress/vuepress-theme-reco%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96.html#%E5%89%8D%E8%A8%80)  
 [^2]: [vuepress-theme-reco主题魔改 | 小弋の生活馆](https://lovelijunyi.gitee.io/posts/6b66.html)  
-[^3]:  [从零实现一个 VuePress 插件 - SegmentFault 思否](https://segmentfault.com/a/1190000041285750)
+[^3]: [从零实现一个 VuePress 插件 - SegmentFault 思否](https://segmentfault.com/a/1190000041285750)
+[^4]: [默认主题配置 | VuePress](https://vuepress.vuejs.org/zh/theme/default-theme-config.html#%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8)  

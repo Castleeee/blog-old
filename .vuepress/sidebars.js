@@ -7,22 +7,15 @@ module.exports ={ //doc的侧边栏配置
     ],
     "/docs/guids/": [//首页Guide的侧边栏
         "",
-        "recommend",
-    ],
-
-    "/blogs/category2/2017/":[
-        '',
         {
-            title: 'python爬虫',
+            title: '好物推荐',
             collapsable: true,
             sidebarDepth: 4,
             children: [
-                '01',
-                '02',
+                'windowsSetup',
             ]
         },
-
-    ]
+    ],
 }
 // {
 //     title: 'Group 1',   // 必要的
