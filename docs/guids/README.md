@@ -1,9 +1,9 @@
 ---
 title: 关于我
 date: 2022-02-09 19:24:45
-isShowComments: false
 sticky: 2
 pageClass: custom-guide-page-class
+isShowComments: false
 ---
 
 <div align="center" style="width: 90%;padding-left: 6%; ">
@@ -23,7 +23,9 @@ pageClass: custom-guide-page-class
 <div align="center" style="font-size: 20px;">
 是一个大学僧(曾经)<br/>
 喜欢写代码，喜欢玩单机联机Switch🎮，看好看的电影书还有沙雕(oﾟvﾟ)，也喜欢安静的思考。<br/>   
-写个博客记录一下自己的成长历程
+写个博客记录一下自己的成长历程  
+不专攻前端，记录一下学习前端的坑（事js）。希望踩过的坑能给其他人一点帮助,前端不重复造轮子💬.  
+暂时想学C++<br/><a href="/docs/readme/zhan-dian-di-tu.html" style="size: 10px;">站点地图</a>
 </div>
 
 

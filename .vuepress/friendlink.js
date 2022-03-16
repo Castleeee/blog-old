@@ -1,15 +1,15 @@
 //友链
 module.exports=[
     {
-        "title": "午后南杂",
-        "desc": "Enjoy when you can, and endure when you must.",
-        "email": "1156743527@qq.com",
-        "link": "https://www.recoluan.com"
+        "title": "厉害师哥简书",
+        "desc": "当个记事本用 ，有什么错误在下方指出 一起进步.",
+        "avatar": "https://upload.jianshu.io/users/upload_avatars/12571268/aa006667-9a66-4bb5-86c0-9a3cd4d604b9.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240",
+        "link": "https://www.jianshu.com/u/da9d898c9657"
     },
     {
-        "title": "vuepress-README",
-        "desc": "A simple and beautiful vuepress Blog & Doc theme.",
-        "avatar": "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
-        "link": "https://vuepress-theme-reco.recoluan.com"
-    }
+        "title": "🤔笨笨的简书",
+        "desc": "成为一名合格的程序媛是需要不断努力的！\n"+ "学习过程中的一些笔记和坑，记在这里惹- _ -",
+        "avatar": "https://upload.jianshu.io/users/upload_avatars/12754558/cd8d0039-d670-4ae9-80b8-4a8763e32163.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240",
+        "link": "https://www.jianshu.com/u/2b712c3977d4"
+    },
 ]

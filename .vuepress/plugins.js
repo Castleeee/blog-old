@@ -24,5 +24,11 @@ module.exports=[
     [
         require('./vuepress-plugin-home-button'),//自定义插件引入方式
     ],
-    ["@vuepress/plugin-toc@next",]
+    ["@vuepress/plugin-toc@next",],
+    ["permalink-pinyin",
+        {
+            lowercase: true, // Converted into lowercase, default: true
+            separator: "-", // Separator of the slug, default: '-'
+        },
+    ],
 ]

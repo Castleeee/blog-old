@@ -1,61 +1,13 @@
 //大侧边栏配置
-module.exports ={ //doc的侧边栏配置
-    "/docs/README/": [//首页README的侧边栏
-        "",
-        "blogReadme",
-        "Obsidian",
-    ],
-    "/docs/guids/": [//首页Guide的侧边栏
-        "",
-        {
-            title: '好物推荐',
-            collapsable: true,
-            sidebarDepth: 4,
-            children: [
-                'windowsSetup',
-            ]
-        },
-    ],
+const getDocPath = require('./getDocPath')
+module.exports ={
+    "/docs/README/": getDocPath("/docs/README/"),//首页README的侧边栏
+    "/docs/guids/": getDocPath("/docs/guids/"),//首页Guide的侧边栏
+    "/docs/old/": getDocPath('/docs/old'),//指定文件夹生成侧边栏,手动写法见那个文件
+    //old是以前的数据挖掘没整理进笔记里
+    "/blogs/python/pachong/": ['基础爬虫','Scrapy爬虫','Scrapy-Django联动爬虫','Scrapy-redis分布式爬虫'],
+    "/blogs/python/shujuwajue/": getDocPath('/blogs/python/shujuwajue'),
 }
-// {
-//     title: 'Group 1',   // 必要的
-//         path: '/blogs/category2/2017/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-//     collapsable: true, // 可选的, 默认值是 true,
-//     sidebarDepth: 1,    // 可选的, 默认值是 1
-//     children: [
-//     '04',
-//     '03',
-//     {
-//         title: 'Group 2',   // 必要的
-//         path: '/blogs/category2/2017/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-//         collapsable: true, // 可选的, 默认值是 true,
-//         sidebarDepth: 1,    // 可选的, 默认值是 1
-//         children: [
-//             '04',
-//             '03',
-//             {
-//                 title: 'Group 1',   // 必要的
-//                 path: '/blogs/category2/2017/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-//                 collapsable: true, // 可选的, 默认值是 true,
-//                 sidebarDepth: 1,    // 可选的, 默认值是 1
-//                 children: [
-//                     '04',
-//                     '03',
-//                     {
-//                         title: 'Group 2',   // 必要的
-//                         path: '/blogs/category2/2017/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-//                         collapsable: true, // 可选的, 默认值是 true,
-//                         sidebarDepth: 1,    // 可选的, 默认值是 1
-//                         children: [
-//                             '04',
-//                             '03',
-//                         ]
-//                     },
-//                 ]
-//             },
-//         ]
-//     },
-// ]
-// },
 
-// children里面是可以进行一个娃的套的,例子已经注释了起来
+
+
