@@ -53,8 +53,8 @@ module.exports = {
       "platform": 'github',
       "owner": 'Castleeee',
       "repo": 'blog',
-      "clientId": '4c28289715eae2527644',
-      "clientSecret": '55bb7260ec8c870b094645e5f9723a850ea3389d',
+      "clientId": 'ob里找',
+      "clientSecret": 'ob里找',
     }
   },
   plugins,
