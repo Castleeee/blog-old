@@ -31,4 +31,5 @@ module.exports=[
             separator: "-", // Separator of the slug, default: '-'
         },
     ],
+    ["fulltext-search",],
 ]

@@ -12,9 +12,10 @@ sticky: 6
 - **Obsidian git**用来同步github和多平台
   - 注意不要同步.obsidian文件夹，在gitignore里面配置一下就可了，有很多文件实时变更每次都冲突
 - **show whitespace** 显示空格 选项全打开
+- **show current file path** 右下角显示文件路径点击可复制
 - **Advanced Tables** 表格辅助插件
   - Excel to Markdown Table 可以直接从excel粘贴
-  - obsidian-table-editor 还未发布从github上找的。
+  - obsidian-table-editor 还未发布从github上找的
 - **Auto pair chinese symbol** 中文符号自动成对
 - **Remember cursor position** 切换文件时记住鼠标位置
 - **Search on Internet** 搜索
@@ -58,9 +59,10 @@ sticky: 6
   - 设置快捷键为`ctrl+p` 把文件链接都转换为相对链接，双链转换完后用这个重新确定路径，多个重名时会是遍历目录的第一个
   - 直接使用转换插件把所有选项全关了，留下move attachments with note和update links
 - **Attachment Name Formatting** 自动重命名附件
+  - 移动文档的时候提前关掉
   - 默认粘贴附件和图片空格会被替换成%，vuepress无法渲染
   - 进入JS`main.js` 把`join(" ")`替换为`join("_")` 这样就可以随便渲染了
-  - 还是没解决图片路径前面加一个`./` 的问题 //TODO
+  - ~~还是没解决图片路径前面加一个`./` 的问题~~ 脚本解决了
 - **dataview** 最核心的插件之一，但我不会//TODO
 - **Tag Wrangler** 标签管理，tag可以批量重命名，但是tag必须**不能含有符号**，可以有emoji
 - **Various Complements** 一些自动补全 打开当前文件夹和dict，IME选项，关掉space after
@@ -68,6 +70,7 @@ sticky: 6
   - **Media Extended BiliBili Plugin** 支持bilibili
   - 插入链接即可，在预览模式中点击链接就会有一个单独的播放器播放，再切回编辑模式就可以一边看一边写
   - 设置快捷键`command+t`通过播放器获得时间戳，可以生成一个带时间戳的链接，点击就可以跳转，渲染之后也可以点开。
+
 ### CSS
 下面有附代码，建立一个css文件他自己会读取
 1. 主题使用的是Obsidian Nord
@@ -91,21 +94,26 @@ sticky: 6
 - 不要使用Obsidian中的自带注释，直接用html的注释
 - metadata信息看[博客的说明](./blogReadme.md#^18f313)， 建立vuepress文章的模板，创建新文章之后直接配置开写
 - 大附件建议都扔Onedrive放个链接
-- ==嵌入非图片jpg png svg文件的时候，文件名不要带有英文==
+-  ==嵌入非图片jpg png svg文件的时候，文件名不要带有英文==
+- 高亮前面加一个空格才能被渲染,出问题的时候查找一下是不是 ` == ` 的问题
 - dataview //TODO
-- 生成日报周报 //TODO
+- 生成日报周报
 ## 关于环境备份
 - 将整个valut环境养老备份,就是valut下的Obsidian
 - 软件本体 mac windows linux安装包，ios没有，版本为0.13.23
 - 插件都在.obsidian中，自己修改的插件Attachment Name Formatting->main.js,还有custom.css
 - .obsidian备份为obsidian搞新库的时候就替换掉就行
+- 博客的备份本地一份，github一份和本能同步，养老库备份一份没有node_modules的
+- 转换脚本养老库备份一份，本地一份放着
+- 上传OneDrive
 ## 一些示例
-````ad-note 
-collapse:open
-title:CSS
+::: tip
+ad-note
+collapse: true
+title: ▪️CSS
 我能吞下玻璃而不伤身体  
 I can eat glass, it does not hurt me
-````
+:::
 [dataview的教程](https://zhuanlan.zhihu.com/p/393550306)
 [领导年终奖50万，却只分给我100块_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1eS4y1C7wu)
 

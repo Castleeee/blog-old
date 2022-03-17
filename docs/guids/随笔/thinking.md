@@ -2,8 +2,7 @@
 title: 一些想法
 date: 2019-11-1 17:09:05
 subSidebar: false
-categories: 
-- 随笔
+categories: 随笔
 ---
 ## 一些想法
 学东西的时候多想想

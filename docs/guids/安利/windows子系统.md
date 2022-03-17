@@ -6,7 +6,8 @@ tags:
 - linux🐧
 ---
 
-:::warning zsh真香
+:::warning ⚠️Warning
+title: zsh真香  
 linux 配置 oh my zsh和zsh  
 到处安利~
 :::
@@ -33,8 +34,8 @@ sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 sudo vim /etc/apt/sources.list
 ```
 把所有内容注释掉，把下面这些地址粘贴进去
-<details>
-  <summary><B><I style="cursor:pointer; color: #0e5870">Click to See More</I></B></summary>
+
+:::details example
 
 ```
 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
@@ -58,7 +59,7 @@ deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe m
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
 ```
 
-</details>
+:::
 
 保存退出，然后更新apt
 ```
@@ -117,10 +118,12 @@ sudo chmod +x /etc/init.wsl
 ```
 %sudo ALL=NOPASSWD: /etc/init.wsl
 ```
-:::danger
+
+:::danger ⚡️Danger
 一定要在所有东西做完之后在文本最后添加！！！  
 不然会失败
 :::
+
 linux部分大功告成！  
 在windows下新建一个文本文档，写入下面内容，保存为随便一个名字后缀 **.vbs**文件
 ```
@@ -131,7 +134,7 @@ ws.run "ubuntu1804 run sudo /etc/init.wsl start", vbhide
 `[C:\Users\你当前的用户\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup]`  
 里就会开机自启，
 重启开机直接连接试试。
-:::tip
+:::tip 📌Tip
 可以在windows控制面板->程序->更改或关闭windows设置->适用于windows的最小linux子系统  
 控制是否启用系统中的该功能，如果不启用就不会开始init进程也不会耗电。
 :::
@@ -141,8 +144,7 @@ ws.run "ubuntu1804 run sudo /etc/init.wsl start", vbhide
 这是一个好用的shell命令行有很多插件。（确定不是因为好看才装的？  
 ### 安装ZHS和oh my zsh
 ssh连接以后是这样的，但是很丑啊。。。自动补全跳转啥的都不好用。
-<div align=center ><img src="./static/截图2019-05-15_18-24-39.png" style="height: 500px"/></div>
-
+![800](./static/截图2019-05-15_18-24-39.png)
 
 **ubuntu使用**
 
@@ -188,7 +190,7 @@ sudo apt-get install autojump
 ```
 需要把`. /usr/share/autojump/autojump.sh`添加到`~/.zshrc`文件尾。  
 **centos安装autojump**
-```
+```sh
 git clone git://github.com/joelthelion/autojump.git
 cd autojump
 ./install.py
@@ -207,53 +209,40 @@ plugins=(git extract ruby gem rails rvm python pip django npm node scala docker 
 - 修改 ZSH_THEME="powerlevel9k/powerlevel9k"
 - 最后一行添加 POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
     - 这个是用来去掉阿里云前面又臭又长的主机名的，留下了用户名。其他的不用动就很帅  
-      
-<br/>
-
 
 
 重启或者新开选项卡或`source ~/.zshrc`就有作用了。  
 安完之后敲shell就舒服多了
-<div align=center ><img src="./static/截图2019-05-15_19-07-42.png" style="height: 500px"/></div>
-
-
-
+![](./static/截图2019-05-15_19-07-42.png)
 ## 注意事项
 
 **文件读写**  
-<br/>
+  
 windows下的磁盘文件都挂载到了/mnt，盘符对应win的盘符，不过外置驱动器是不会自动挂载的  
 
 **Docker**   
-<br/>
+  
 docker本身是深入系统服务的软件，开启docker必须要访问windows上面的docker进程。  
 但是既然这样为什么不直接使用windows上的docker呢？还不会有性能损耗。  
 Docker无法在win10家庭版运行，使用toolbox可以试试.不过对于surface的性能来说，可以，但没必要。  
-<br/>
+  
 **服务管理**   
-<br/>
+  
 
-:::danger
+:::danger ⚡️Danger
 不能使用systemctl,因为init进程pid并不是1。这个本质上是windows开起了一个进程通过MINGW64运行linux命令，所以系统的最高进程和普通的linux不一样，无法调用systemctl。  
 建议使用service
 :::
 
 **密钥**   
-<br/>
+  
 密钥和Windows中的密钥匙不互通的，ssh-keygen会生成一个新的存储在WSL的~/.ssh里面。  
-软件使用密钥的时候(git)要注意。
-<br/>
+软件使用密钥的时候(git)要注意。  
 
-<div align=center ><img src="./static/截图2019-05-14_15-51-38.png" style="height: 550px"/><br/>完成之后</div>
+![1000](./static/截图2019-05-14_15-51-38.png)
 
 ## 参考
-
-<a href='https://unix.stackexchange.com/questions/229124/how-do-i-run-the-ssh-command-to-set-stricthostkeychecking-no'>ssh登录免验证</a>  
-<a href='https://zhuanlan.zhihu.com/p/47733615'>WSL开机启动ssh</a>  
-<a href='https://blog.csdn.net/zhangjiahao14/article/details/80554616'>Ubuntu修改阿里源</a>   
-<a href='https://blog.csdn.net/raoweijian/article/details/65661302 '>WSL配置ssh</a>   
-
-
-
-
-<Valine></Valine>
+[ssh登录免验证](https://unix.stackexchange.com/questions/229124/how-do-i-run-the-ssh-command-to-set-stricthostkeychecking-no)  
+[WSL开机启动ssh](https://zhuanlan.zhihu.com/p/47733615)  
+[Ubuntu修改阿里源](https://blog.csdn.net/zhangjiahao14/article/details/80554616)  
+[WSL配置ssh](https://blog.csdn.net/raoweijian/article/details/65661302)  

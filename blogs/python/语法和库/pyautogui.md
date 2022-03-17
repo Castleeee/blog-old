@@ -11,116 +11,114 @@ tags:
 
 ## 复习 PyAutoGUI 的函数
 
-本章介绍了许多不同函数，下面是快速的汇总参考<br/>
+本章介绍了许多不同函数，下面是快速的汇总参考    
 
-````ad-warning
+:::warning ⚠️Warning
 pyautogui.FAILSAFE=False#关闭文件安全
 记得引入pythoncom
-````
+:::
 
 ### 速览
-获取当前屏幕分辨率<br/>
+获取当前屏幕分辨率    
 
-screenWidth, screenHeight = pyautogui.size()<br/>
+screenWidth, screenHeight = pyautogui.size()    
 
-获取当前鼠标位置<br/>
+获取当前鼠标位置    
 
-currentMouseX, currentMouseY = pyautogui.position()<br/>
+currentMouseX, currentMouseY = pyautogui.position()    
 
-鼠标双击<br/>
+鼠标双击    
 
-pyautogui.doubleClick()<br/>
+pyautogui.doubleClick()    
 
-moveTo（x，y）将鼠标移动到指定的 x、y 坐标。最左上角为0，0<br/>
+moveTo（x，y）将鼠标移动到指定的 x、y 坐标。最左上角为0，0    
 
-moveRel （xOffset，yOffset）相对于当前位置移动鼠标。<br/>
+moveRel （xOffset，yOffset）相对于当前位置移动鼠标。    
 
-dragTo（x，y）按下左键移动鼠标。<br/>
+dragTo（x，y）按下左键移动鼠标。    
 
-dragRel （xOffset，yOffset）按下左键，相对于当前位置移动鼠标。<br/>
+dragRel （xOffset，yOffset）按下左键，相对于当前位置移动鼠标。    
 
-click（x，y，button）模拟点击（默认是左键）。<br/>
+click（x，y，button）模拟点击（默认是左键）。    
 
-rightClick() 模拟右键点击。<br/>
+rightClick() 模拟右键点击。    
 
-middleClick() 模拟中键点击。<br/>
+middleClick() 模拟中键点击。    
 
-doubleClick() 模拟左键双击。<br/>
+doubleClick() 模拟左键双击。    
 
-mouseDown（x，y，button）模拟在 x、y 处按下指定鼠标按键。<br/>
+mouseDown（x，y，button）模拟在 x、y 处按下指定鼠标按键。    
 
-mouseUp（x，y，button）模拟在 x、y 处释放指定键。<br/>
+mouseUp（x，y，button）模拟在 x、y 处释放指定键。    
 
-scroll （units）模拟滚动滚轮。正参数表示向上滚动，负参数表示向下滚动。<br/>
+scroll （units）模拟滚动滚轮。正参数表示向上滚动，负参数表示向下滚动。    
 
 ## 控制鼠标
 
-import pyautogui
+import pyautogui  
 
-pyautogui.PAUSE=1　　　　　　# 将 pyautogui.PAUSE 设置为 1，即每次函数调用后暂停一秒。<br/>
+pyautogui.PAUSE=1　　　　　　# 将 pyautogui.PAUSE 设置为 1，即每次函数调用后暂停一秒。    
 
-pyautogui.FAILSAFE=True　　　　# 启动自动防故障功能。<br/>
+pyautogui.FAILSAFE=True　　　　# 启动自动防故障功能。    
 
 ### 控制鼠标移动
 
-|>>> import pyautogui<br/>
+|>>> import pyautogui    
 
-|>>> pyautogui.size()<br/>
+|>>> pyautogui.size()    
 
-(1920, 1080)　　　　　　　　# 分辨率为 1920 × 1080 的计算机<br/>
+(1920, 1080)　　　　　　　　# 分辨率为 1920 × 1080 的计算机    
 
-|>>> width, height = pyautogui.size()<br/>
+|>>> width, height = pyautogui.size()    
 
 ### 移动鼠标
-|>>> import pyautogui<br/>
+|>>> import pyautogui    
 
-|>>> for i in range(10):<br/>
+|>>> for i in range(10):    
 
-pyautogui.moveTo(100, 100, duration=0.25)<br/>
+pyautogui.moveTo(100, 100, duration=0.25)    
 
-pyautogui.moveTo(200, 100, duration=0.25)<br/>
+pyautogui.moveTo(200, 100, duration=0.25)    
 
-pyautogui.moveTo(200, 200, duration=0.25)<br/>
+pyautogui.moveTo(200, 200, duration=0.25)    
 
-pyautogui.moveTo(100, 200, duration=0.25)　　　　# 根据提供的坐标，以正方形的模式顺时针移动鼠标，移动了 10 次。每次移动耗时 0.25 秒，<br/>
+pyautogui.moveTo(100, 200, duration=0.25)　　　　# 根据提供的坐标，以正方形的模式顺时针移动鼠标，移动了 10 次。每次移动耗时 0.25 秒，    
 
+|>>> import pyautogui    
 
+|>>> for i in range(10):    
 
-|>>> import pyautogui<br/>
+pyautogui.moveRel(100, 0, duration=0.25)    
 
-|>>> for i in range(10):<br/>
+pyautogui.moveRel(0, 100, duration=0.25)    
 
-pyautogui.moveRel(100, 0, duration=0.25)<br/>
+pyautogui.moveRel(-100, 0, duration=0.25)    
 
-pyautogui.moveRel(0, 100, duration=0.25)<br/>
+pyautogui.moveRel(0, -100, duration=0.25)     # pyautogui.moveRel() 也接受 3 个参数：向右水平移动多少个像素，向下垂直移动多少个像素，以及（可选的）花多少时间完成移动。为第一第二个参数提供负整数，鼠标将向左或向上移动。    
 
-pyautogui.moveRel(-100, 0, duration=0.25)<br/>
+|>>> import pyautogui    
 
-pyautogui.moveRel(0, -100, duration=0.25)<br/> # pyautogui.moveRel() 也接受 3 个参数：向右水平移动多少个像素，向下垂直移动多少个像素，以及（可选的）花多少时间完成移动。为第一第二个参数提供负整数，鼠标将向左或向上移动。<br/>
-
-|>>> import pyautogui<br/>
-
-|>>> pyautogui.click(10, 5)<br/>
+|>>> pyautogui.click(10, 5)    
 ## 键盘
-typewrite（message）键入给定消息字符串中的字符。<br/>
+typewrite（message）键入给定消息字符串中的字符。    
 
-typewrite（[key1，key2，key3]）键入给定键字符串。<br/>
+typewrite（[key1，key2，key3]）键入给定键字符串。    
 
-press（key）按下并释放给定键。<br/>
+press（key）按下并释放给定键。    
 
-keyDown（key）模拟按下给定键。<br/>
+keyDown（key）模拟按下给定键。    
 
-keyUp（key）模拟释放给定键。<br/>
+keyUp（key）模拟释放给定键。    
 
-hotkey（[key1，key2，key3]）模拟按顺序按下给定键字符串，然后以相反的顺序释放。<br/>
+hotkey（[key1，key2，key3]）模拟按顺序按下给定键字符串，然后以相反的顺序释放。    
 
-screenshot() 返回屏幕快照的 Image 对象（参见第 17 章关于 Image 对象的信息）。<br/>
+screenshot() 返回屏幕快照的 Image 对象（参见第 17 章关于 Image 对象的信息）。    
 
-![](static/pyautogui_images_1.png)
+![](./static/pyautogui_images_1.png)
 
-````ad-danger
+:::danger ⚡️Danger
 pyautogui并不能输入中文,他的输入只能模拟某个按键
-```` 
+:::
 
 ## 使用pyperclip输入中文
 ### 简单的API
@@ -129,13 +127,13 @@ pyperclip.copy("你好呀")  # 先复制
 pyautogui.hotkey('ctrl', 'v')  # 再粘贴
 ```
 ## PyHook
-````ad-warning
-title: 注意环境
-一般使用pyhook3但是pyhook并不支持python3<br/>
-会出现错误，python3使用扩展库pyhook_py3k<br/>
-hook不支持python3，pyhook_3k也只支持32位<br/>
+:::warning ⚠️Warning
+️注意环境
+一般使用pyhook3但是pyhook并不支持python3    
+会出现错误，python3使用扩展库pyhook_py3k    
+hook不支持python3，pyhook_3k也只支持32位    
 建议用QT
-````
+:::
 
 ### API
 舰艇鼠标键盘配合pyautogui使用事半功倍
@@ -197,7 +195,7 @@ def main():
 if __name__ == "__main__":
   main()
 ```
-````ad-tip
-其他方式
+:::tip 📌Tip
+️其他方式
 PyQt5对鼠标键盘进行监听看<a href=''>这里</a>
-````
+:::

@@ -9,18 +9,16 @@ date: 2022-02-09 19:24:45
 
 ## 重装前注意事项
 重装必然会格盘这个不用说，所有的更新和预览版会失效重新下载，存储的ssh本机公钥私钥会消失需要重新生成。注意资料都保存一下不要弄没了。我使用的是Win10专业版，先安完然后让他自己更新系统，更新为最新版之后再开始安软件，不然会出现奇怪的兼容性或者损坏之类的。  
-:::warning
+:::warning ⚠️Warning
 重装好的系统没有网卡驱动，不能自动连wifi  
 :::
 ## 空间分配
 C盘至少给80个G，我的surface上给了78个G，电脑上给了85，可能surface系统是定制的，占用小一些。除了所有要求装在C之外的软件，剩下的都扔到其他盘，常用的需要加载的(美工，编程，办公)放在D,游戏，资料，桌面，系统文档等放在机械E盘。
 
 ## 基本步骤
-:::tip
+:::tip 📌Tip
 步骤拆解成好几步，每一步都是一组操作，目前我按照这个顺序弄的
 :::
-
-
 
 <font color=#008c9e size=4>
 
@@ -38,6 +36,7 @@ C盘至少给80个G，我的surface上给了78个G，电脑上给了85，可能s
 12. 优化启动和服务
 
 </font> 
+
 
 ## windows本身的设置
 ### 设置
@@ -158,7 +157,7 @@ C盘至少给80个G，我的surface上给了78个G，电脑上给了85，可能s
 顺带在组策略里禁用
 
 ## 编程环境
-:::tip
+:::tip 📌Tip
 不是程序猿就不需要安装编程环境和编程工具，网络工具
 :::
 ### IDE
@@ -249,9 +248,6 @@ yarn config set registry https://registry.npm.taobao.org
 `E:\nodejs\npm`
 
 #### Golang
-#### Scala
-#### juila
-
 ### Other
 - <a href="https://git-scm.com/downloads">git</a>+<a href="https://tortoisegit.org/download/">tortoiseGit</a>+<a href="https://www.gitkraken.com/download/windows64">Gitkarken</a>用git管理项目
   - git config --global user.name "xxxxx"
@@ -369,7 +365,7 @@ mklink /J "C:\Program Files\Common Files\Adobe" "D:\Adobe\Common Files\Adobe"
   - 后台运行，去掉托盘图标，实时搜索
   - 双击打开目录 使用双缓存，使用交错行，搜索关键词高亮，显示数量和搜索总数，显示提示信息
   - 显示快捷窗口Alt+`，保持http和ftp关闭
-- <a href="https://www.autohotkey.com/">**autohotkey**</a>按键映射，可以让你Ctrl+Shift转换输入法，win自带的时win+space;映射为Ctrl+Shift,win+t按键置顶当前窗口win+ctrl+t取消当前窗口置顶
+- **<a href="https://www.autohotkey.com/">autohotkey</a>** 按键映射，可以让你Ctrl+Shift转换输入法，win自带的时win+space;映射为Ctrl+Shift,win+t按键置顶当前窗口win+ctrl+t取消当前窗口置顶
   - 设置->语言->中文(中华人民共和国)->微软拼音->选项->选择默认输入法模式。自行调整切换后默认为中文即可
   - 新建一个脚本 输入法案件映射.ahk 并放入
     ***C:\Users\57635\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup*** 脚本内容
@@ -390,48 +386,46 @@ mklink /J "C:\Program Files\Common Files\Adobe" "D:\Adobe\Common Files\Adobe"
 
 Win+R(services.msc)优化服务(不需要的就关掉):
 
-<div align= center>
 
-|服务|作用&设置|
-|:--:|:--|
-|Adobe Genuine Monitor Service||
-|Adobe Genuine Software Integrity Service||
-|BitLocker Drive Encryption Service||
-|CAJ Service Host |手动|
-|Certificate Propagation |手动|
-|Contact Data 63c78b  |如果停止或禁用此服务，<br/>你的搜索结果中可能会缺少联系人。|
-|Developer Tools Service |远程UWP调试|
-|Diagnostic Execution Service |策略诊断|
-|Diagnostic Policy Service | 策略诊断|
-|Diagnostic Service Host| 策略诊断|
-|Diagnostic System Host |策略诊断|
-|Docker Desktop Service |手动|
-|Function Discovery Resource Publication||
-|Google Update Service(gupdate)||
-|Google Update Service(gupdatem)||
-|ntel(R)HD Graphics Control Panel Service||
-|MessagingService 63c78b||
-|Microsoft（R）|诊断中心标准收集器服务|
-|Offline Files||
-|Phone Service||
-|QPCore Service||
-|Quality Windows Audio Video Experience||
-|SangforSP 手动||
-|Shared PC Account Manager||
-|shell Hardware Detection||
-|Smart Card||
-|Smart Card Device Enumeration Service||
-|Smart Card Removal Policy||
-|TeamViewer 14|手动|
-|WalletService||
-|Windows Error Reporting Service||
-|Windows Search||
-|Workstation|手动|
-|XLServicePlatform|手动|
-|家长控制||
-|建议疑难解答服务||
+| 服务                                       | 作用&设置                            |
+|:-----------------------------------------|:---------------------------------|
+| Adobe Genuine Monitor Service            |                                  |
+| Adobe Genuine Software Integrity Service |                                  |
+| BitLocker Drive Encryption Service       |                                  |
+| CAJ Service Host                         | 手动                               |
+| Certificate Propagation                  | 手动                               |
+| Contact Data 63c78b                      | 如果停止或禁用此服务，你的搜索结果中可能会缺少联系人。 |
+| Developer Tools Service                  | 远程UWP调试                          |
+| Diagnostic Execution Service             | 策略诊断                             |
+| Diagnostic Policy Service                |  策略诊断                            |
+| Diagnostic Service Host                  |  策略诊断                            |
+| Diagnostic System Host                   | 策略诊断                             |
+| Docker Desktop Service                   | 手动                               |
+| Function Discovery Resource Publication  |                                  |
+| Google Update Service(gupdate)           |                                  |
+| Google Update Service(gupdatem)          |                                  |
+| ntel(R)HD Graphics Control Panel Service |                                  |
+| MessagingService 63c78b                  |                                  |
+| Microsoft（R）                             | 诊断中心标准收集器服务                      |
+| Offline Files                            |                                  |
+| Phone Service                            |                                  |
+| QPCore Service                           |                                  |
+| Quality Windows Audio Video Experience   |                                  |
+| SangforSP 手动                             |                                  |
+| Shared PC Account Manager                |                                  |
+| shell Hardware Detection                 |                                  |
+| Smart Card                               |                                  |
+| Smart Card Device Enumeration Service    |                                  |
+| Smart Card Removal Policy                |                                  |
+| TeamViewer 14                            | 手动                               |
+| WalletService                            |                                  |
+| Windows Error Reporting Service          |                                  |
+| Windows Search                           |                                  |
+| Workstation                              | 手动                               |
+| XLServicePlatform                        | 手动                               |
+| 家长控制                                     |                                  |
+| 建议疑难解答服务                                 |                                  |
 
-</div>
 
 - 所有工作做完之后用Dism++ 在做最后调整。
 ## 美化
@@ -511,7 +505,7 @@ surface : <br/>
 </div>
 
 
-:::danger
+:::danger ⚡️Danger
 本文所提到的所有软件仅供交流学习使用，请下载者在下载后24小时内删除，作者不分享任何盗版资源，有能力者请支持正版。所有通过本文寻找盗版造成的损失与作者无关。
 :::
 

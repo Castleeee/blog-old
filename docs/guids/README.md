@@ -25,7 +25,6 @@ isShowComments: false
 喜欢写代码，喜欢玩单机联机Switch🎮，看好看的电影书还有沙雕(oﾟvﾟ)，也喜欢安静的思考。<br/>   
 写个博客记录一下自己的成长历程  
 不专攻前端，记录一下学习前端的坑（事js）。希望踩过的坑能给其他人一点帮助,前端不重复造轮子💬.  
-暂时想学C++<br/><a href="/docs/readme/zhan-dian-di-tu.html" style="size: 10px;">站点地图</a>
+暂时想学C++<br/><a href="/docs/readme/zhan-dian-di-tu.html" style="size: 10px;">站点地图🗺</a>
 </div>
-
 

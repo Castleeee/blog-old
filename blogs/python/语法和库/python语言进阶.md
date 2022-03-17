@@ -11,91 +11,54 @@ tags:
 
 ## python中一切皆对象
 ### 对象的产生
-type->class->obj <br/>
-object是最高的父类，本身继承None <br/>
-
+type->class->obj   
+object是最高的父类，本身继承None   
 
 ```python
 type(type(1))
 ```
 
-
-
-
     type
-
-
-
 
 ```python
 type(object)
 ```
 
-
-
-
     type
-
-
-
 
 ```python
 type.__base__
 ```
 
-
-
-
     object
-
-
 
 python中的对象有基本的三个特征：
 - id（身份）
 - type（类型）
 - value（值）
 
-
 ```python
 a=[]
 id(a)
 ```
 
-
-
-
     2296013674440
-
-
-
 
 ```python
 type(a)
 ```
 
-
-
-
     list
-
-
-
 
 ```python
 a
 ```
-
-
-
-
     []
 
+### python中不同的类型  
 
+#### None类型
 
-### python中不同的类型<br/>
-:::warning 1
-None类型<br/>
-:::
 解释器刚开始运行就生成了一个None类型对象所有用到了None的地方指向的都是同一个全局的None
 
 ```python
@@ -110,10 +73,10 @@ print(id(c)==id(d))
     True
     False
 
-::: warning 2
-数值类型 四种<br/>
+
+#### 数值类型 四种
 int float bool complex
-:::
+
 ```python
 print(
 type(1),
@@ -124,41 +87,37 @@ type(complex(1))
 ```
 
     <class 'int'> <class 'float'> <class 'bool'> <class 'complex'>
-:::warning  3
-迭代类型
-:::
+#### 迭代类型
+
 可用for迭代的对象
 实现了iter方法或者getitem方法的对象
 
-:::warning 4
-序列类型
-:::
-list<br/>tuple<br/> arry <br/>str<br/> range<br/> bytes <br/>bytearry <br/> memoryview(二进制序列)    <br/>
+#### 序列类型
+
+list  tuple   arry   str   range   bytes   bytearry    memoryview(二进制序列)      
 #### 其他类型
-:::tip
-5 映射类型 k-v 字典，queryset等    <br/>
-6 集合类型set frozenset ，set和映射类型底层实现一致效率较高    <br/>
-7 上下文管理类型 with 语句所形成的类型    8 模块类型（package也是一种类型）    <br/>
-9 class和实例类型    <br/>
-10 函数类型    <br/>
-11 方法类型    <br/>
-12 代码类型（代码本身也会被解释为一种类型！！！）   <br/>
-13 object对象    <br/>
-14 type类型  <br/>
-15 ellipsis类型省略号类型？！    <br/>
-16 notimplemented类型就是类对象<br/>
-:::
+
+5. 映射类型 k-v 字典，queryset等
+6. 集合类型set frozenset ，set和映射类型底层实现一致效率较高
+7. 上下文管理类型 with 语句所形成的类型    8 模块类型（package也是一种类型）
+9. class和实例类型
+10. 函数类型
+11. 方法类型
+12. 代码类型（代码本身也会被解释为一种类型！！！
+13. object对象
+14. type
+15. ellipsis类型省略号类型？！
+16. notimplemented类型就
 
 ## 魔法函数
-以双下划线开头结尾，具有特殊功能的函数 一般不要去自己定义，重载python提供给我们的即可<br/>
+以双下划线开头结尾，具有特殊功能的函数 一般不要去自己定义，重载python提供给我们的即可  
 
-python的数据模型是python底层实现机制重要的一环我们可以通过重载这些魔法函数来实现自己想要的功能<br/>
+python的数据模型是python底层实现机制重要的一环我们可以通过重载这些魔法函数来实现自己想要的功能  
 
-先列出主要的魔法函数<br/>
-### 非数学运算类<br/>
+先列出主要的魔法函数  
+### 非数学运算类
     字符串表示：
         __repr__():
-
         __str__():
 
 	集合序列相关：
@@ -206,8 +165,6 @@ python的数据模型是python底层实现机制重要的一环我们可以通�
 #### 略
 
 ### str 和 repr
-
-
 ```python
 class company(object):
     def __init__(self,em):
@@ -230,22 +187,20 @@ com
 
     employee:bobby,tom,bob,jhon
     len的用法:  4
-
+    
     开发者模式下不用打印就可以调用
-
 
 #### _ _str_ _(self):
 在直接打印这个对象时就会调用该方法，若没有定义则会打印一些基本属性
 #### _ _repr_ _(self):
-在开发者模式中直接调用这个对象则会调用repr方法<br/>python内置的数据类型是用Cpython实现的，内置方法是C语言实现的效率会很高<br/>
-例如_ _len_ _方法是在数据结构内维护一个长度，调用len的时候直接从内存读取会快很多<br/>
-for 对一个对象进行遍历的时候会先寻找iter方法，找不到会自动寻找getitem方法<br/>
+在开发者模式中直接调用这个对象则会调用repr方法  python内置的数据类型是用Cpython实现的，内置方法是C语言实现的效率会很高  
+例如_ _len_ _方法是在数据结构内维护一个长度，调用len的时候直接从内存读取会快很多  
+for 对一个对象进行遍历的时候会先寻找iter方法，找不到会自动寻找getitem方法  
 
-## 鸭子类型和python的多态性 <br/>
+## 鸭子类型和python的多态性   
 ### 什么是鸭子
-走路像鸭子叫声像鸭子长得像鸭子 那么就是鸭子。<br/>
+走路像鸭子叫声像鸭子长得像鸭子 那么就是鸭子。  
 只要对象拥有这个特性那就是这个类型就可以调用相关的方法
-
 
 ```python
 class Cat(object):
@@ -268,11 +223,7 @@ for i in l:
 
     15551
     hahaha...
-
-
 不同类型的对象只要拥有相同名字的方法就可以调用,传入对象的句柄(名字)即可
-
-
 ```python
 li=[1,2]
 se=(3,4)
@@ -281,20 +232,14 @@ li.extend(se)
 li
 ```
 
-
-
-
     [1, 2, 3, 4]
 
-
-
-只要是相同的基础数据类型（迭代类型，序列类型）方法可以混用<br/>
+只要是相同的基础数据类型（迭代类型，序列类型）方法可以混用  
 _ _getitem_ _：根据传入的int参数，返回一个列表中的元素
 
 _ _iter_ _：返回一个可迭代对象
 
 _ _next_ _：当被迭代时，返回下一个迭代的对象
-
 
 ```python
 class Test():
@@ -325,6 +270,7 @@ next(test1)
 
 ```
 
+:::details example
 
     i
     it
@@ -353,12 +299,12 @@ next(test1)
 
 
     StopIteration:
-
+:::
 next(x)=x.__next__,关于迭代有两个概念
-<br/>第一个是Iterable(可迭代对象)
-<br/>第二个是Iterator（迭代器）<br/>
-协议规定Iterable的__iter__方法会返回一个Iterator,<br/>
-Iterator的__next__方法会返回下一个迭代对象，如果迭代结束则抛出StopIteration异常。<br/>iter(itr, 'c')  这个意思是说，返回itr的iterator，而且在之后的迭代之中，迭代出来'c'就立马停止。<br/>对这个itr有什么要求呢？这个itr在这里必须是callable的，即要<br/>实现__call__函数定义了__getitem__方法之后该对象就可以被下标和切片
+  第一个是Iterable(可迭代对象)
+  第二个是Iterator（迭代器）  
+协议规定Iterable的__iter__方法会返回一个Iterator,  
+Iterator的__next__方法会返回下一个迭代对象，如果迭代结束则抛出StopIteration异常。  iter(itr, 'c')  这个意思是说，返回itr的iterator，而且在之后的迭代之中，迭代出来'c'就立马停止。  对这个itr有什么要求呢？这个itr在这里必须是callable的，即要  实现__call__函数定义了__getitem__方法之后该对象就可以被下标和切片
 
 ### 抽象基类
 <a href='https://blog.csdn.net/qijiqiguai/article/details/77269839'>一个博主的详细介绍</a>
@@ -381,10 +327,7 @@ hasattr(company(1),"__len__")
 
     True
 
-
-
 实现一个抽象基类最简单的方法就是在要做基类的类方法中抛出异常，使其必须重写这个方法
-
 
 ```python
 class AbstractBase(object):
@@ -403,9 +346,7 @@ class A(metaclass=abc.ABCMeta):
 A()
 ```
 
-
     ---------------------------------------------------------------------------
-
     TypeError                                 Traceback (most recent call last)
 
     <ipython-input-59-dc359d224db9> in <module>()
@@ -413,17 +354,16 @@ A()
          13         pass
     ---> 14 A()
 
-
     TypeError: Can't instantiate abstract class A with abstract methods my
 
-:::danger 其实有一点不太明白 留坑
-abc中强制规定了abstractmethod，继承时若不实现这一方法就无法实例化<br/>
-from collections.abc import *<br/>
-已经做好的一些基类可以拿来继承<br/>
-实现了__subclasshook__用于类型判断<br/>
+:::danger ⚡️Danger
+️其实有一点不太明白 留坑  
+abc中强制规定了abstractmethod，继承时若不实现这一方法就无法实例化  
+from collections.abc import *  
+已经做好的一些基类可以拿来继承  
+实现了__subclasshook__用于类型判断  
 :::
 python的鸭子类型是根本,抽象基类可以给我们提供一些接口的强制规定和帮助我们自定义类型等等
-
 
 ```python
 class A ():
@@ -437,27 +377,20 @@ class B(A):
 b=B()
 isinstance(b,A)
 ```
-
-
-
-
     True
 
-
-
-:::danger  is 和 ==不能混用
-
-is是判断是不是同一个对象通过id()的指向，而相等是判断值相等<br/>isinstance判断对象是否在继承链的类型中
+:::danger ⚡️Danger
+is 和 == 不能混用  
+is是判断是不是同一个对象通过id()的指向，而相等是判断值相等  isinstance判断对象是否在继承链的类型中
 :::
 ### 功能类MixIn和变量机制
-功能类，以MixIn命名结尾多继承关系中作为功能类继承，设计实现单一功能，相当于代替接口<br/>
-Mixin的特点<br/>
-和基类是弱相关或不相关<br/>
-Mixin功能单一<br/>
-不要使用Mixin的super<br/>
+功能类，以MixIn命名结尾多继承关系中作为功能类继承，设计实现单一功能，相当于代替接口  
+Mixin的特点  
+和基类是弱相关或不相关  
+Mixin功能单一  
+不要使用Mixin的super  
 
 #### 类变量和对象变量
-
 
 ```python
 class A():
@@ -475,10 +408,10 @@ print(A.aa)
     100 2 3
     1
 
-再调用的时候，会首先查找实例变量再去查找类变量<br/>
-在没有初始化a的时候存在一个A的类是一个类对象,实例化的时候成为一个类对象的实例<br/>
-对类实例进行赋值，会影响后续类对象，对类对象进行赋值，则只会影响本类对象<br/>
-python3中使用C3算法解决<a href='https://www.cnblogs.com/chenyoude/p/9857308.html'>菱形继承</a><br/>
+再调用的时候，会首先查找实例变量再去查找类变量  
+在没有初始化a的时候存在一个A的类是一个类对象,实例化的时候成为一个类对象的实例  
+对类实例进行赋值，会影响后续类对象，对类对象进行赋值，则只会影响本类对象  
+python3中使用C3算法解决<a href='https://www.cnblogs.com/chenyoude/p/9857308.html'>菱形继承</a>  
 
 ```python
 class Date():
@@ -502,8 +435,8 @@ print(date)
 
     2018/3/4
     2018/3/5
-:::warning
-调用date.tomorrow()相当于tomorrow（date）<br/>只会改变当前对象的属性，类属性应该写成Date.day+=1
+:::warning ⚠️Warning
+调用date.tomorrow()相当于tomorrow（date）  只会改变当前对象的属性，类属性应该写成Date.day+=1
 :::
 ```python
 class Date():
@@ -539,10 +472,8 @@ print(Date.dformat(string))
 
     2018-3-4
 
-
-### 类方法和静态方法<br/>
+### 类方法和静态方法  
 静态方法一般是用来验证是否符合规范，不用再新建一个对象，而类方法可以直接返回实例对象
-
 
 ```python
 class Date():
@@ -567,19 +498,23 @@ print(user.__dict__,User.__dict__)
     {'age': 23} {'__module__': '__main__', '__init__': <function User.__init__ at 0x0000025EDB51DE18>, '__repr__': <function User.__repr__ at 0x0000025EDB5606A8>, '__doc__': None}
 
 ### 自省机制
-__attr不能直接访问，相当于private，但也可_class__attr来访问<br/>
-__dict__可以直接下标访问是存贮属性的字典，也可以动态修改<br/>
-dir会把所有的属性特有的和基础的完整的列出来<br/>
-super函数是按照__mro__顺序来调用的，BFS，如果super有缺省可以直接让父类的构造函数来完成初始化<br/>
-Mixin的特点<br/>
-和基类是弱相关或不相关<br/>
-Mixin功能单一<br/>
-:::warning
-不要使用Mixin的super<br/>
+
+__attr不能直接访问，相当于private，但也可_class__attr来访问  
+__dict__可以直接下标访问是存贮属性的字典，也可以动态修改  
+dir会把所有的属性特有的和基础的完整的列出来  
+super函数是按照__mro__顺序来调用的，BFS，如果super有缺省可以直接让父类的构造函数来完成初始化  
+Mixin的特点  
+和基类是弱相关或不相关  
+Mixin功能单一  
+
+:::warning ⚠️Warning
+不要使用Mixin的super  
 :::
-:::danger Try的堆栈
+:::danger ⚡️Danger
+title: Try的堆栈  
 python的try except和finally语句的return执行到error 时进入except 栈顶push 一个值，不返回，先运行finally语句再从栈顶拿出一个值pop
 :::
+
 ## 基于协议的python
 ### 上下文管理协议
 python是基于协议的运行,首先介绍上下文管理器的协议
@@ -613,6 +548,7 @@ with gett() as sample:
     sample.hah()
     print(sample.S)
 ```
+:::details example
 
     start
     <class 'NoneType'>
@@ -632,7 +568,7 @@ with gett() as sample:
 
 
     AttributeError: 'NoneType' object has no attribute 'hah'
-
+:::
 
 具体可控的上下文管理协议
 ```python
@@ -652,18 +588,17 @@ with p() as pp:
     中间的操作
     后操作
 
-
 ### 序列相关协议
 
-序列 <br/>容器序列 <br/>扁平序列 <br/>可变/不可变<br/>
-在 collections abc中有两个抽象基类:<br/> Squence MutableSequence序列和多对象序列<br/>
+序列   容器序列   扁平序列   可变/不可变  
+在 collections abc中有两个抽象基类:   Squence MutableSequence序列和多对象序列  
 
-Sequence序列类继承了<br/>{
-&nbsp;&nbsp;&nbsp;&nbsp;Reversible可反转，<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;Collection继承了{<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sized长度<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Iterable可迭代<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Container容器{<br/>
+Sequence序列类继承了  {
+&nbsp;&nbsp;&nbsp;&nbsp;Reversible可反转，  
+&nbsp;&nbsp;&nbsp;&nbsp;Collection继承了{  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sized长度  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Iterable可迭代  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Container容器{  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;的absctactmethod __contains__负责is以以及__setitem__ __delitem__}}}}
 
 #### 在序列中+ += extend的区别
@@ -676,16 +611,11 @@ c+=[5,6]
 c
 ```
 
-
-
-
     [1, 2, 3, 4, 5, 6]
 
-
-
-:::tip
-+=实际上时abc中的__iadd__调用的时extend ->执行for 循环一个个append到序列中<br/>所以可以接受一个序列即可，在原序列中直接加<br/>而+是产生一个新的序列
-<br/>切片操作是会返回一个新的列表
+:::tip 📌Tip
++=实际上时abc中的__iadd__调用的时extend ->执行for 循环一个个append到序列中  所以可以接受一个序列即可，在原序列中直接加  而+是产生一个新的序列
+  切片操作是会返回一个新的列表
 :::
 ```python
 class Group ():
@@ -717,7 +647,6 @@ class Group ():
 
 #### 维护一个已排序的序列
 
-
 ```python
 import bisect
 
@@ -740,17 +669,14 @@ if __name__ == "__main__":
     [1, 2, 3, 5, 6]
     [1, 2, 2.9, 3, 5, 5, 6]
 
-
-
 arr留坑
 ```python
 import arry
 from collections import deque
 
 ```
-:::tip
+:::tip 📌Tip
 列表生成式性能是高于列表普通操作的，可以用函数来进行操作
-
 :::
 ```python
     def x(y):
@@ -767,25 +693,26 @@ from collections import deque
 
 ### Mapping类型协议
 #### dict
-dict是一个典型Mapping类型，abc继承关系是<br/>
-       -Container as Container,<br/>
-       -Hashable as Hashable,<br/>
-       -Iterable as Iterable,<br/>
-        Iterator as Iterator,<br/>
-       -Sized as Sized,<br/>
-        Callable as Callable,<br/>
-       -Mapping as Mapping,<br/>
-        MutableMapping as MutableMapping,<br/>
-        Sequence as Sequence,<br/>
-        MutableSequence as MutableSequence,<br/>
-        Set as Set,<br/>
-        MutableSet as MutableSet,<br/>
-        MappingView as MappingView,<br/>
-        ItemsView as ItemsView,<br/>
-        KeysView as KeysView,<br/>
-        ValuesView as ValuesView,<br/>
+dict是一个典型Mapping类型，abc继承关系是  
+       -Container as Container,  
+       -Hashable as Hashable,  
+       -Iterable as Iterable,  
+        Iterator as Iterator,  
+       -Sized as Sized,  
+        Callable as Callable,  
+       -Mapping as Mapping,  
+        MutableMapping as MutableMapping,  
+        Sequence as Sequence,  
+        MutableSequence as MutableSequence,  
+        Set as Set,  
+        MutableSet as MutableSet,  
+        MappingView as MappingView,  
+        ItemsView as ItemsView,  
+        KeysView as KeysView,  
+        ValuesView as ValuesView,  
 
-:::warning copy
+:::warning ⚠️Warning
+️copy
 深拷贝改变拷贝对象不会改变原对象，只要拷贝的对象是非容器类型（比如字符串，数字和其他原子类型）就不能进行拷贝而是添加引用
 :::
 这是代码
@@ -802,10 +729,6 @@ print(a,b,c,d)
 
     {'c': 5} {'c': 5} {'c': 6} {}
 
-
-yuan
-
-
 #### dict用法补充
 ```python
 a=["a","b","c"]
@@ -816,19 +739,15 @@ dic.setdefault("索引","值")#先添加或更改一个键值对，然后取出
 dic.update(Iterable)#将这个可迭代对象一般是键值对形式添加到字典中去，[(a,b),(c,d)] a=b,c=d {"a":"b","c":"d"}
 ```
 
-
-
-
     '默认值'
 
-
-:::danger 原生结构
-python原生的一些数据结构list dict等等直接继承在某些情况下不会生效<br/>
+:::danger ⚡️Danger
+原生结构  
+python原生的一些数据结构list dict等等直接继承在某些情况下不会生效  
 最好继承collections UserDict，list同理
 :::
 #### set的用法补充
 set是一个无序不重复集合修改用add（）del（）pop（）等等，frozenset是不可变集合，无法修改但是可以作为dict的key
-
 
 ```python
 s=set("def")#会把迭代对象分别作为元素
@@ -837,14 +756,9 @@ s.update("abc")#会把迭代对象分别作为元素
 d=set("defgh")
 s.difference(d)#比较两个set的不同，取差集，是一个新的set，主要的操作 |并 &交 -差
 ```
-
-
-
-
     {'a', 'abc', 'b', 'c'}
-
-
-:::tip 垃圾回收
+:::tip 📌Tip
+️垃圾回收  
 python中的垃圾回收算法是引用计数，一个变量有n个引用，当引用计数变为 0 即回收垃圾，del函数可完成更高级的垃圾回收
 参数绝对不能用可变对象（list）
 注意环形引用问题
@@ -925,7 +839,7 @@ for i in ChainMap(s,s1):
     pprint(i)#把俩字典合成Chainmap对象，但是不是加在一起了，迭代的时候前面出现的元素后面不会在打印
 
 ```
-:::tip
+:::tip 📌Tip
 接下来的代码会很多我在PyCharm里面写然后复制过来
 :::
 ## 三神器
@@ -954,30 +868,25 @@ a=A(1,3)
 a.name
 ```
 
-
-
-
     '发现了name'
 
+使用属性描述符限制传值的类型，参考Django的form验证  
+如果user是某个类的实例，那么user.age 以及等价的getattr(user,age)  
 
+- 首先调用__getattribute__。如果类定义了 __getattr__方法，  
 
-使用属性描述符限制传值的类型，参考Django的form验证<br/>
-如果user是某个类的实例，那么user.age 以及等价的getattr(user,age)<br/>
+- 那么在____getattribute__拋出AttributeError的时候就会调用到__getattr__，  
 
-- 首先调用__getattribute__。如果类定义了 __getattr__方法，<br/>
+而对于描述符(__get__)的调用，则是发生在__getattribute__内部的  
 
-- 那么在____getattribute__拋出AttributeError的时候就会调用到__getattr__，<br/>
-
-而对于描述符(__get__)的调用，则是发生在__getattribute__内部的<br/>
-
-user = User(),那么user.age 顺序如下：<br/>
-1. E3果“”是出现在User或其基类的__diet__中，且age是data descriptor，<br/>
-2. 如果“age”出现在obj的__diet__中，那么直接返回obj.__diet__[fage’],<br/>
-3. 如果“age”出现在User或其基类的__dict__*<br/>
-	- 如果age是non-data descriptor,那么调用其__get__方 法 ， 否 则<br/>
-	- 返回 __dict__[fage’]<br/>
-4. 如果User有__getattr__方法，调用__getattr__方法，否则<br/>
-5. 抛出AttributeError<br/>
+user = User(),那么user.age 顺序如下：  
+1. E3果“”是出现在User或其基类的__diet__中，且age是data descriptor，  
+2. 如果“age”出现在obj的__diet__中，那么直接返回obj.__diet__[fage’],  
+3. 如果“age”出现在User或其基类的__dict__*  
+	- 如果age是non-data descriptor,那么调用其__get__方 法 ， 否 则  
+	- 返回 __dict__[fage’]  
+4. 如果User有__getattr__方法，调用__getattr__方法，否则  
+5. 抛出AttributeError  
 
 ```python
 class A ():
@@ -986,37 +895,32 @@ class A ():
     def __init__(self):#代表本对象
 
 ```
-
-
       File "<ipython-input-2-00e9d8750bd0>", line 5
-
         ^
     SyntaxError: unexpected EOF while parsing
 
-
-:::tip new和init
-new是用来自定义类产生过程的逻辑<br/>init是用来定义实例产生的过程的<br/>
+:::tip 📌Tip
+new和init  
+new是用来自定义类产生过程的逻辑  init是用来定义实例产生的过程的  
 如果new没有返回对象，则不会进入实例化阶段
 :::
 ### 迭代器
 #### 迭代器是实现的迭代协议
-无法下标访问（getitem）不直接返回，惰性返回数据的方式<br/>iterable-> iter函数 和tierator->netx函数 <br/>
+无法下标访问（getitem）不直接返回，惰性返回数据的方式  iterable-> iter函数 和tierator->netx函数   
 实际访问通过的是next
 ### 生成器
 #### 只要是含有yield的就是生成器
-提供了惰性求值<br/>
-python—切皆对象，栈帧对象，字节码对象<br/>
-当foo调用子函数bar，又士创建一个栈帧<br/>
-所有的栈帧都是分配在堆内存上，这就决定了栈帧可以独立于调用者存在<br/>
-静态语言是放到栈上运行完毕之后会销毁<br/>动态语言放在堆上，找到栈帧可以持续调用<br/>
+提供了惰性求值  
+python—切皆对象，栈帧对象，字节码对象  
+当foo调用子函数bar，又士创建一个栈帧  
+所有的栈帧都是分配在堆内存上，这就决定了栈帧可以独立于调用者存在  
+静态语言是放到栈上运行完毕之后会销毁  动态语言放在堆上，找到栈帧可以持续调用  
 
 ![栈帧字节码](https://upload-images.jianshu.io/upload_images/12620393-3e2b72fd6678a24b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-:::tip
+:::tip 📌Tip
 原生过程是将递归之后的字节码都压到栈帧里去，然后函数的指针指向最近一次运行的栈帧，运行之后就会执行下一个栈帧所以可以顺利的yield
 :::
-
-
 
 ![栈帧](https://upload-images.jianshu.io/upload_images/12620393-401946d7f7695b32.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -1069,6 +973,8 @@ if __name__ == "__main__":
     #     print(i)
 ```
 
+:::details example
+
      12           0 LOAD_CONST               1 (1)
                   2 YIELD_VALUE
                   4 POP_TOP
@@ -1114,16 +1020,14 @@ if __name__ == "__main__":
 
     StopIteration:
 
-
+:::
 
 ```python
 #### 读取一行超大文件有分隔符
 超大一行文件,不能直接read,readline也不行因为只有一行,内存会爆掉
-:::tip
-使用迭代器惰性返回,设置buffer代码如下
-:::
 ```
 
+使用迭代器惰性返回,设置buffer代码如下
 
 ```python
 
@@ -1146,6 +1050,8 @@ if __name__ == "__main__":
             print(i)
 ```
 
+:::details example
+
     sdfghRSXCSYDVASYEDCRAVSBWDYGT
     exrsadcsvydbasfygv7aysdsaidbas9dunb
     shdvgyascvdtysacdysgbdyuasfvy
@@ -1154,80 +1060,65 @@ if __name__ == "__main__":
     sdyfb87dygvfds7ybnfufvwb8dfvbe6tvdb8uvfwy8duiygwdf
     sedfuwyiyfrte7y8urgevtfbyefb7vyd8unedyb8
     edyundimgrfey8unimdgrvyb8unwime
-
-
-
+:::
 ## WebSocket
 ### 基本的API
 - <strong>sk.bind(address)</strong>
 
-　　s.bind(address) 将套接字绑定到地址。address地址的格式取决于地址族。在AF_INET下，以元组（host,port）的形式表示地址。
+　address) 将套接字绑定到地址。address地址的格式取决于地址族。在AF_INET下，以元组（host,port****
 
-- <strong>sk.listen(backlog)</strong>
+- **sk.listen(backlog)**
 
 　　开始监听传入连接。backlog指定在拒绝连接之前，可以挂起的最大连接数量。
-
       backlog等于5，表示内核已经接到了连接请求，但服务器还没有调用accept进行处理的连接个数最大为5
       这个值不能无限大，因为要在内核中维护连接队列
 
-- <strong>sk.setblocking(bool)</strong>
+- **sk.setblocking(bool)**
 
 　　是否阻塞（默认True），如果设置False，那么accept和recv时一旦无数据，则报错。
 
-- <strong>sk.accept()</strong>
+- **sk.accept()**
 
 　　接受连接并返回（conn,address）,其中conn是新的套接字对象，可以用来接收和发送数据。address是连接客户端的地址。
 
 　　接收TCP 客户的连接（阻塞式）等待连接的到来
 
-- <strong>sk.connect(address)</strong>
+- **sk.connect(address)**
 
 　　连接到address处的套接字。一般，address的格式为元组（hostname,port）,如果连接出错，返回socket.error错误。
 
-- <strong>sk.connect_ex(address)</strong>
+- **sk.connect_ex(address)**
 
 　　同上，只不过会有返回值，连接成功时返回 0 ，连接失败时候返回编码，例如：10061
 
-- <strong>sk.close()</strong>
+- **sk.close()**
 
 　　关闭套接字
 
-- <strong>sk.recv(bufsize[,flag])</strong>
+- **sk.recv(bufsize[,flag])**
 
 　　接受套接字的数据。数据以字符串形式返回，bufsize指定最多可以接收的数量。flag提供有关消息的其他信息，通常可以忽略。
 
-- <strong>sk.recvfrom(bufsize[.flag])</strong>
+- **sk.recvfrom(bufsize[.flag])**
 
 　　与recv()类似，但返回值是（data,address）。其中data是包含接收数据的字符串，address是发送数据的套接字地址。
 
-- <strong>sk.send(string[,flag])</strong>
+- **sk.send(string[,flag])**
 
 　　将string中的数据发送到连接的套接字。返回值是要发送的字节数量，该数量可能小于string的字节大小。即：可能未将指定内容全部发送。
 
-- <strong>sk.sendall(string[,flag])</strong>
-
+- **sk.sendall(string[,flag])**
 　　将string中的数据发送到连接的套接字，但在返回之前会尝试发送所有数据。成功返回None，失败则抛出异常。
-
       内部通过递归调用send，将所有内容发送出去。
-
-- <strong>sk.sendto(string[,flag],address)</strong>
-
+- **sk.sendto(string[,flag],address)**
 　　将数据发送到套接字，address是形式为（ipaddr，port）的元组，指定远程地址。返回值是发送的字节数。该函数主要用于UDP协议。
-
-- <strong>sk.settimeout(timeout)</strong>
-
+- **sk.settimeout(timeout)**
 　　设置套接字操作的超时期，timeout是一个浮点数，单位是秒。值为None表示没有超时期。一般，超时期应该在刚创建套接字时设置，因为它们可能用于连接的操作（如 client 连接最多等待5s ）
-
-- <strong>sk.getpeername()</strong>
-
+- **sk.getpeername()**
 　　返回连接套接字的远程地址。返回值通常是元组（ipaddr,port）。
-
-- <strong>sk.getsockname()</strong>
-
+- **sk.getsockname()**
 　　返回套接字自己的地址。通常是一个元组(ipaddr,port)
-
-- <strong>sk.fileno()</strong>
-
+- **sk.fileno()**
 　　套接字的文件描述符
 ### TCP/UDP的使用代码
 #### 服务器
@@ -1281,32 +1172,30 @@ print(recvdata.decode('utf-8'))#发送的时候要记得编码
 
 ```
 
-
 ### socketserver的使用
 继承关系如图
 ![socketserver的继承](https://upload-images.jianshu.io/upload_images/12620393-ec7af0bec463f5d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
+`import socketserver`  
+封装好了一些东西了拿来直接用  
+调用方式为  
+`sock=socketserver.ThreadTCPServer(("ip",port),HandlerClass)`  
+`sock.server_forever`如果知道应用程序只能操纵面向数据流的连接（如TCP），那么应从`StreamRequestHandler`继承，而不是`BaseRequestHandler`。`StreamRequestHandler`类设置了两个属性，  
+h.wfile是将数据写入客户端的类文件对象，h.rfile是从客户端读取数据的类文件对象。  
+如果要编写针对数据包操作的处理程序并将响应持续返回发送方，那么它应当从`DatagramRequestHandler`继承。  
+它提供的类接口与`StramRequestHandler`相同。  
+常用的handler属性  
+h.client_address#客户端地址  
+h.server#获取自己的server对象  
+h.request  
+对 TCP server，h.request 属性是连接到 client 的连接套接字对象；就是那个socket  
+对 UDP server，h.request 属性是一个二元组(data, sock)，data 是 client 端发送的数据（最大8192字节），sock是server端套接字。  
+　　使用这个属性可以获取在这个进/线程中与client套接字建立连接的连接套接字，从而可以使用这个套接字与client端通信。  
+　　 StreamRequestHandler 和 DatagramRequestHandler 则屏蔽了 self.request 对TCP和UDP连接的区别，二者都重定义了 setup() 和 finish() 方法，提供统一的 self.rfile 和 self.wfile 属性以便从客户端读取数据或向客户端发送数据。  
+代码如下   
 
-import socketserver<br/>
-封装好了一些东西了拿来直接用<br/>
-调用方式为<br/>
-sock=socketserver.ThreadTCPServer(("ip",port),HandlerClass)<br/>
-sock.server_forever如果知道应用程序只能操纵面向数据流的连接（如TCP），那么应从StreamRequestHandler继承，而不是BaseRequestHandler。StreamRequestHandler类设置了两个属性，<br/>
-h.wfile是将数据写入客户端的类文件对象，h.rfile是从客户端读取数据的类文件对象。<br/>
-如果要编写针对数据包操作的处理程序并将响应持续返回发送方，那么它应当从DatagramRequestHandler继承。<br/>
-它提供的类接口与StramRequestHandler相同。<br/>
-常用的handler属性<br/>
-h.client_address#客户端地址<br/>
-h.server#获取自己的server对象<br/>
-h.request<br/>
-对 TCP server，h.request 属性是连接到 client 的连接套接字对象；就是那个socket<br/>
-对 UDP server，h.request 属性是一个二元组(data, sock)，data 是 client 端发送的数据（最大8192字节），sock是server端套接字。<br/>
-　　使用这个属性可以获取在这个进/线程中与client套接字建立连接的连接套接字，从而可以使用这个套接字与client端通信。<br/>
-　　 StreamRequestHandler 和 DatagramRequestHandler 则屏蔽了 self.request 对TCP和UDP连接的区别，二者都重定义了 setup() 和 finish() 方法，提供统一的 self.rfile 和 self.wfile 属性以便从客户端读取数据或向客户端发送数据。<br/>
-代码如下
-:::danger 留坑
-这里没怎么实验
-:::
+留坑 这里没怎么实验
+
 ```python
 from socketserver import BaseRequestHandler
 
@@ -1326,10 +1215,10 @@ class MyHandl(BaseRequestHandler):
         print("over")
 
 ```
-- ThreadTCPServer<br/>
-- ThreadUDPServer<br/>
-- ThreadingUnixStreamServer<br/>
-- ThreadingUnixDatagramServer<br/>
+- ThreadTCPServer  
+- ThreadUDPServer  
+- ThreadingUnixStreamServer  
+- ThreadingUnixDatagramServer  
 所有的Server都有下面的方法
 
 | 类或者方法                |  作用                                                                             |
@@ -1341,13 +1230,12 @@ class MyHandl(BaseRequestHandler):
 | sock.shutdown()          | 停止serve_forever()循环                                                             |
 | sock.fileno()            | 返回服务器套接字的整数文件描述符.该方法可以有效的通过轮询操作(如select()函数)使用服务器实例 |
 
-
 ## 多线程
 
-python中的一个线程对应c中的一个线程<br/>因为GIL,在某一时刻只能有一个线程在一个cpu上执行字节码无法将多个线程映射到多个核上<br/>
-GIL不是在本线程使用完之后才会释放<br/>根据执行的字节码和时间片和IO操作才释放，导致线程不安全<br/>
-最开始语言使用的都是多进程，对系统资源消耗很大，后来开始使用线程，线程是依附于进程的，<br/>操作系统能调度的最小单位是线程IO为主的程序性能差别不大<br/>
-具体请看<a href='www.baidu.com'>操作系统-线程和进程</a><br/>
+python中的一个线程对应c中的一个线程  因为GIL,在某一时刻只能有一个线程在一个cpu上执行字节码无法将多个线程映射到多个核上  
+GIL不是在本线程使用完之后才会释放  根据执行的字节码和时间片和IO操作才释放，导致线程不安全  
+最开始语言使用的都是多进程，对系统资源消耗很大，后来开始使用线程，线程是依附于进程的，  操作系统能调度的最小单位是线程IO为主的程序性能差别不大  
+具体请看<a href='www.baidu.com'>操作系统-线程和进程</a>  
 ### 使用线程函数和线程类
 ```python
 #-*-coding:utf-8-*-
@@ -1390,6 +1278,8 @@ if __name__ == "__main__":
         t.start()#开始一个线程
 ```
 
+:::details example
+
     Hi False
      你好线程
     janny
@@ -1398,13 +1288,11 @@ if __name__ == "__main__":
     Hello  Bob
     Hello  安娜
     Hello  法鸡
-
+:::
 
 ### 线程安全队列
-LIFO队列 基本FIFO队列 优先级队列<br/>
+LIFO队列 基本FIFO队列 优先级队列  
 这三种基础队列已经实现了线程安全
-
-
 ```python
 #-*-coding:utf-8-*-
 #SettingCode here
@@ -1457,17 +1345,16 @@ if __name__ == "__main__":
         print(q.get())
 ```
 
-join()会暂时挂起队列和妄图注入队列的线程，直到队列清空<br/>每娶一个就要执行task_down()否则他不知道这个队列已经空了就会一直挂着。。。
+join()会暂时挂起队列和妄图注入队列的线程，直到队列清空  每娶一个就要执行task_down()否则他不知道这个队列已经空了就会一直挂着。。。
 就是用join的时候就一定要每次取完task_down一下
 
 ### 线程锁
-
-锁要小心使用<br/>
-假设得到a，b才能运行<br/>
-线程A得到了b,B得到了A<br/>
-AB都不能运行<br/>
-:::danger
-锁里在获得锁会死锁<br/>
+锁要小心使用  
+假设得到a，b才能运行  
+线程A得到了b,B得到了A  
+AB都不能运行  
+:::danger ⚡️Danger
+锁里在获得锁会死锁  
 注意锁只能被一个线程获得执行释放之后其他线程才会使用
 :::
 锁使用代码如下
@@ -1510,21 +1397,16 @@ if __name__ == "__main__":
     print(a)
     #如果去掉锁的话结果a会乱
 ```
-:::warning 产生死锁的四个必要条件：
 
-
+:::warning ⚠️Warning
+产生死锁的四个必要条件：
 （1） 互斥条件：一个资源每次只能被一个进程使用。
-
 （2） 请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。
-
 （3） 不剥夺条件:进程已获得的资源，在末使用完之前，不能强行剥夺。
-
 （4） 循环等待条件:若干进程之间形成一种头尾相接的循环等待资源关系。
 :::
 
 ### 条件变量
-
-
 ```python
 #-*-coding:utf-8-*-
 #SettingCode here
@@ -1585,16 +1467,16 @@ if __name__ == "__main__":
     x.start()
     t.start()
 ```
-:::tip 提示
-启动顺序很重要,如果notify先启动了那么没有wait的线程就会卡住<br/>
-with cond/acquire 之后才能使用wait和notify<br/>
-condition原理是两层锁，底层锁在线程调用了wait的时候释放，上面的锁在每次wait的时候分配一把放到cond的等待队列中去，等notify的唤醒<br/>
+
+:::tip 📌Tip
+启动顺序很重要,如果notify先启动了那么没有wait的线程就会卡住  
+with cond/acquire 之后才能使用wait和notify  
+condition原理是两层锁，底层锁在线程调用了wait的时候释放，上面的锁在每次wait的时候分配一把放到cond的等待队列中去，等notify的唤醒  
 :::
 ### 信号量
-
-和锁一样用,可以不用同一个函数来释放，可以调用多个<br/>
-是个全局对象<br/>
-定义n个信号量，每次qcquire就-1，每次release就+1减到了0 就会锁住<br/>
+和锁一样用,可以不用同一个函数来释放，可以调用多个  
+是个全局对象  
+定义n个信号量，每次qcquire就-1，每次release就+1减到了0 就会锁住  
 
 使用代码如下
 ```python
@@ -1636,6 +1518,8 @@ if __name__=="__main__":
         p.start()
 ```
 
+:::details example
+
     make!make!
 
     make!
@@ -1643,8 +1527,6 @@ if __name__=="__main__":
 
     make!
     make!make!
-
-
     eat!
     eat!
     make!
@@ -1677,12 +1559,14 @@ if __name__=="__main__":
     eat!
     eat!
 
-:::tip
+:::
+
+:::tip 📌Tip
 程序结构基本就是一个生产者线程拉起一个消费者线程，消费者消费完了才会释放信号量
 :::
 ### 线程池
 
-对线程进行管理，调用线程状态，获取线程返回值，进行池化管理<br/>
+对线程进行管理，调用线程状态，获取线程返回值，进行池化管理  
 子线程完成之后主线程能够立即知道
 代码如下
 
@@ -1740,15 +1624,14 @@ if __name__ == "__main__":
 
 ## 多进程
 <a href=''>操作系统-进程</a>
-进程之间是相互独立的，变量空间按不能共享，各进程保留一份代码副本和运行堆栈需要用特殊的数据结构来访问<br/>
-:::tip windows 和 linux
-linux下子进程永远返回0，而父进程返回子进程的ID。这样做的理由是，一个父进程可以fork出很多子进程，所以，父进程要记下每个子进程的ID，而子进程只需要调用getppid()就可以拿到父进程的ID。<br/>
+进程之间是相互独立的，变量空间按不能共享，各进程保留一份代码副本和运行堆栈需要用特殊的数据结构来访问  
+:::tip 📌Tip
+windows 和 linux  
+linux下子进程永远返回0，而父进程返回子进程的ID。这样做的理由是，一个父进程可以fork出很多子进程，所以，父进程要记下每个子进程的ID，而子进程只需要调用getppid()就可以拿到父进程的ID。  
 :::
 ### 进程池
-
-ProcessPoolExecutor 代替ThreadPoolExecutor就可以了，接口形状一样<br/>
+ProcessPoolExecutor 代替ThreadPoolExecutor就可以了，接口形状一样  
 代码如下
-
 ```python
 #-*-coding:utf-8-*-
 #SettingCode here
@@ -1793,7 +1676,7 @@ if __name__ == "__main__":
 - Queue.get_nowait()：相当Queue.get(False),取不到值时触发异常：Empty；
 - Queue.put():将一个值添加进数列，可传参超时时长。
 - Queue.put_nowait():相当于Queue.get(False),当队列满了时报错：Full。
-:::danger
+:::danger ⚡️Danger
 windows下所有关于进程的操作都要放在if __name__ == '__main__':下面进行，否则会报错
 在使用进程池的时候必须用Manager()对象的Queue不然会出错
 :::
@@ -1831,12 +1714,12 @@ if __name__ == '__main__':
 复杂的数据对象用M.dict，简单的用list，所有的数据结构去源码里看看
 ## 异步
 ### 异步基本概念
-#### 并发 并行 阻塞 非阻塞 同步 异步<br/>
-1. <strong>并发</strong> 在某一时间段内有多个程序运行在一个cpu上<br/>
-2. <strong>并行</strong> 在某一时刻有多个程序运行在多个cpu上<br/>
-3. <strong>阻塞</strong> 调用函数时当前函数被挂起<br/>
-4. <strong>非阻塞</strong>调用函数线程不会被挂起会立即返回<br/>
-5. <strong>同步IO</strong> 发出请求之后等待结果<br/>
+#### 并发 并行 阻塞 非阻塞 同步 异步  
+1. <strong>并发</strong> 在某一时间段内有多个程序运行在一个cpu上  
+2. <strong>并行</strong> 在某一时刻有多个程序运行在多个cpu上  
+3. <strong>阻塞</strong> 调用函数时当前函数被挂起  
+4. <strong>非阻塞</strong>调用函数线程不会被挂起会立即返回  
+5. <strong>同步IO</strong> 发出请求之后等待结果  
 6. <strong>异步IO</strong> 发出请求之后立即返回，不等待结果uinx下五种IO模型
     - 阻塞式IO
     - 非阻塞式IO
@@ -1846,9 +1729,8 @@ if __name__ == '__main__':
 
 
 ### 三种异步机制
-:::danger 留坑
-需要花时间好好整理
-:::
+留坑 需要花时间好好整理
+
 select, poll , epoll都是I〇多路复用的机制。I/O多路复用就是通过一种机
 制，一个进程可以监视多个描述符，一旦某个描述符就绪（一般是读就绪或
 者写就绪），能够通知程序进行相应的读写操作。但select, poll , epoll本
@@ -1937,45 +1819,44 @@ if __name__ == "__main__":
 
     print(time.time()-start_time)
 ```
-:::warning 使用场景
-包含各种特定系统实现的模块化事件循环传输和协议抽象<br/>
-对TCP、UDP、SSL、子进程、延时调用以及其他的具体支持模仿futures模块但适用于事件循环使用的Future类型<br/>
-基于yield from的协议和任务，可以让你用顺序的方式编写并发代码必须使用一个将产生阻塞IO的调用时<br/>
-有接口可以把这个事件转移到线程池莫仿threading模块中的同步原语、可以用在单线程内的协程之间<br/>
+:::warning ⚠️Warning
+title: 使用场景
+包含各种特定系统实现的模块化事件循环传输和协议抽象  
+对TCP、UDP、SSL、子进程、延时调用以及其他的具体支持模仿futures模块但适用于事件循环使用的Future类型  
+基于yield from的协议和任务，可以让你用顺序的方式编写并发代码必须使用一个将产生阻塞IO的调用时  
+有接口可以把这个事件转移到线程池莫仿threading模块中的同步原语、可以用在单线程内的协程之间  
 :::
 
 ### asyncio生态
 
-asyncio官方只实现了比较底层的协议，比如TCP，UDP。所以诸如HTTP协议之类都需要借助第三方库，比如aiohttp。<br/>
+asyncio官方只实现了比较底层的协议，比如TCP，UDP。所以诸如HTTP协议之类都需要借助第三方库，比如aiohttp。  
 
 虽然异步编程的生态不够同步编程的生态那么强大，但是如果又高并发的需求不妨试试，下面说一下比较成熟的异步库
 
 <a href='https://aiohttp.readthedocs.io/en/stable/'>aiohttp</a>
 异步http client/server框架
 
-<a href='https://sanic.readthedocs.io/en/latest/'>sanic</a><br/>
-速度更快的类flask web框架。<br/>
+<a href='https://sanic.readthedocs.io/en/latest/'>sanic</a>  
+速度更快的类flask web框架。  
 
 <a href='https://uvloop.readthedocs.io/'>uvloop</a>
-快速，内嵌于asyncio事件循环的库，使用cython基于libuv实现。<br/>
-官方性能测试:<br/>
-nodejs的两倍，追平golang<br/>
-为了减少歧义，这里的性能测试应该只是网络IO高并发方面不是说任何方面追平golang。<br/>
+快速，内嵌于asyncio事件循环的库，使用cython基于libuv实现。  
+官方性能测试:  
+nodejs的两倍，追平golang  
+为了减少歧义，这里的性能测试应该只是网络IO高并发方面不是说任何方面追平golang。  
 摘自哪个博客我给忘了,回头找到了就添上
 ### 小总结
-Python之所以能够处理网络IO高并发，是因为借助了高效的IO模型，能够最大限度的调度IO，然后事件循环使用协程处理IO，协程遇到IO操作就将控制权抛出，那么在IO准备好之前的这段事件，事件循环就可以使用其他的协程处理其他事情，然后协程在用户空间，并且是单线程的，所以不会像多线程，多进程那样频繁的上下文切换，因而能够节省大量的不必要性能损失。<br/>
-:::warning 注意
+Python之所以能够处理网络IO高并发，是因为借助了高效的IO模型，能够最大限度的调度IO，然后事件循环使用协程处理IO，协程遇到IO操作就将控制权抛出，那么在IO准备好之前的这段事件，事件循环就可以使用其他的协程处理其他事情，然后协程在用户空间，并且是单线程的，所以不会像多线程，多进程那样频繁的上下文切换，因而能够节省大量的不必要性能损失。  
+:::warning ⚠️Warning
 不要再协程里面使用time.sleep之类的同步操作，因为协程再单线程里面，所以会使得整个线程停下来等待，也就没有协程的优势了
 :::
-本文主要讲解Python为什么能够处理高并发,不是为了讲解某个库怎么使用,所以使用细节请查阅官方文档或者执行。<br/>
-
+本文主要讲解Python为什么能够处理高并发,不是为了讲解某个库怎么使用,所以使用细节请查阅官方文档或者执行。  
 无论什么编程语言，高性能框架，一般由事件循环 + 高性能IO模型(也许是epoll)组成
 
 ### async关键字
 可以异步的定义函数
-:::danger
 留坑
-:::
+
 ```python
 #-*-coding:utf-8-*-
 #SettingCode here
@@ -2009,17 +1890,14 @@ if __name__ == "__main__":
 ```
 
 ### 嵌套协程的返回机制
-:::danger
 留坑
-:::
 
 ![嵌套协程的返回机制](https://upload-images.jianshu.io/upload_images/12620393-1c869fc45f491682.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
 ### 在异步中使用同步代码
-:::danger
+
 留坑
-:::
 
 ```python
 #import your model here
@@ -2040,10 +1918,7 @@ if __name__ == "__main__":
     loop.run_until_complete(asyncio.wait(tasks))
 ```
 ### 异步生命周期中的一些函数
-:::danger
-留坑
-:::
-
+刘坑
 ```python
 def callback(t):
     print("sleep {} times".format(t))
@@ -2063,7 +1938,7 @@ if __name__ == "__main__":
 ```
 
 ### 异步中的锁
-在异步中因为代码片执行到一定时间或执行了一定栈帧，GIL会自动释放，也可能导致线程(异步)不安全<br/>
+在异步中因为代码片执行到一定时间或执行了一定栈帧，GIL会自动释放，也可能导致线程(异步)不安全  
 和多线程中一样我们需要使用锁来保证数据一致性
 ```python
 lock=Lock()
@@ -2086,7 +1961,6 @@ async def reparse():#重新解析这个请求，再次调用这个解析函数�
 ```
 
 ### aio异步爬虫
-
 
 ```python
 #-*-coding:utf-8-*-
@@ -2181,8 +2055,7 @@ if __name__ == "__main__":
 
 ### 异步插入数据库
 在scrapy中异步插入mysql看<a href=''>这里</a>
-:::danger
+:::danger ⚡️Danger
 留坑
 :::
 ## 后续将持续更新
-<Valine></Valine>

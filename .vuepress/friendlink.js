@@ -12,4 +12,18 @@ module.exports=[
         "avatar": "https://upload.jianshu.io/users/upload_avatars/12754558/cd8d0039-d670-4ae9-80b8-4a8763e32163.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240",
         "link": "https://www.jianshu.com/u/2b712c3977d4"
     },
+    {
+        "title": "一个很厉害的人",
+        "desc": "找问题偶然碰到的，加到这里把",
+        "avatar": "https://wiki.eryajf.net/img/logo.png",
+        "link": "https://wiki.eryajf.net/"
+    },
+    {
+        "title": " 十年之约✨",
+        "desc": "一个人的寂寞，一群人的狂欢。",
+        "avatar": "https://www.foreverblog.cn/favicon.ico",
+        "link": "https://www.foreverblog.cn/"
+    },
+
+
 ]
