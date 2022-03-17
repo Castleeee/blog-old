@@ -1,9 +1,8 @@
 ---
 title: Python语言进阶
 date: 2018-12-28 23:39:45
-prev: false
-next: ./python语法技巧.md
-categories: 
+pageClass: custom-series-page-class
+categories:
 - python🐍
 tags:
 - python🐍

@@ -1,7 +1,9 @@
+/*全局CSS*/
 // 右侧文章标题导航栏
 a.sidebar-link {
   font-size: 16px !important;
 }
+//显示小标题的anchor
 .page .theme-reco-content h3::before {
   position: absolute;
   display: block;
@@ -13,18 +15,11 @@ a.sidebar-link {
   margin-left: 0;
 }
 .home-blog .hero div {margin-top: -8rem;}
-
+//引入字体
 @font-face{
   font-family: mao;
   src: url("/mao.ttf");
 }
-.theme-container.custom-guide-page-class .page .page-title {
-  // 去除左上角标题，作者，标签等
-
-    display: none;
-}
-/* 特定页面的 CSS */
-
 // 搜索结果样式
 .suggestions {
   max-height: 80vh; // 搜索结果框高度自适应
@@ -33,4 +28,16 @@ a.sidebar-link {
 .suggestions .highlight{
   color: rgba(0, 187, 255, 0.79)
   font-weight: bold
+}
+
+/* 特定页面的 CSS */
+.theme-container.custom-guide-page-class .page .page-title {
+  // 去除左上角标题，作者，标签等
+  display: none;
+}
+.theme-container.custom-series-page-class .sidebar {
+  display: none;// 去除侧边栏
+}
+.theme-container.custom-series-page-class .page {
+   margin-left: 0;// 靠左对齐
 }

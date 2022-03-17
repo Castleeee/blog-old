@@ -1,6 +1,7 @@
 ---
 title: py踩坑记录
 date: 2022-03-15 11:09
+pageClass: custom-series-page-class
 categories:
 - python🐍
 tags:

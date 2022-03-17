@@ -7,6 +7,7 @@ module.exports ={
     //old是以前的数据挖掘没整理进笔记里
     "/blogs/python/shu-ju-wa-jue/": getDocPath('/blogs/python/shu-ju-wa-jue/'),
     "/blogs/python/pa-chong/":['基础爬虫','Scrapy爬虫','Scrapy-Django联动爬虫','Scrapy-redis分布式爬虫'],
+    "/blogs/python/yu-fa-he-ku/":['python语法技巧','python语言进阶','py踩坑记录','pyautogui'],
     "/blogs/Courses/ji-suan-ji-wang-luo-zi-ding-xiang-xia/": getDocPath('/blogs/Courses/ji-suan-ji-wang-luo-zi-ding-xiang-xia/'),
     "/blogs/Courses/wang-dao-cao-zuo-xi-tong/": getDocPath('/blogs/Courses/wang-dao-cao-zuo-xi-tong/'),
     "/blogs/Courses/wang-dao-shu-ju-jie-gou/": getDocPath('/blogs/Courses/wang-dao-shu-ju-jie-gou/'),

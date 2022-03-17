@@ -1,8 +1,7 @@
 ---
 title: Python语法技巧
 date: 2018-1-1 20:38:45
-prev: ./python语言进阶.md
-next: ./pyautogui.md
+pageClass: custom-series-page-class
 categories: 
 - python🐍
 tags:

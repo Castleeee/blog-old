@@ -1,7 +1,7 @@
 ---
 title: pyautoGUI+pyHook
 date: 2019-1-1 20:37:45
-prev: ./python语法技巧.md
+pageClass: custom-series-page-class
 categories:
 - python🐍
 tags:

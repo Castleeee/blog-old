@@ -17,13 +17,12 @@ sticky: 5
 ---
 title: first page  
 date: 2022-02-11 15:31:09 
-prev: ./environment.md
-next: ./Cpp.md
 subSidebar: false
 isShowComments: false
 search: false
 publish: false 
 sticky: 1
+pageClass: custom-series-page-class
 keys:
  - '123456'
 categories:  
@@ -40,6 +39,7 @@ tags:
 - search: false 全文检索插件的是否被检索，除了社科类的，都直接不写
 - publish: false/true 是否发布
 - sticky 接受数字，降序排列(大在前)置顶
+- pageClass:自定义本页css，我用来写非系列连续文章**next和prev已经失效了**
 -  keys 可多个密码，必须字符串，默认加密只是将页定位到实际内容上方，加密本身是没有什么作用的
 - categories 可以用中文，类似于系列，只要新出现的都会自动创建，可以一篇文章多个category
 - tags 标签可以用中文，vuepress只会解析metadata里的[标签](./Obsidian.md#^d604fe)，可以用Tag Wrangler插件管理
@@ -60,10 +60,11 @@ tags:
     - theorem: `quote`，details: `example` 这俩直接加标题白色
 4. \<!-- more --> 之上的是文章简介，~~其实可以搭配:::使用但是Obsidian里面不渲染，有点突兀~~ 自己写脚本解决了
 5. 标签和分类
-    -   成系列的文章放一个categories
-    -   不成系列的categories只按语言分类
-    -   tag尽量精简而全
-    -   阅读顺序从上往下
+    - 成系列的文章放一个categories
+    - 不成系列的categories只按语言分类
+    - 非系列连续文章也需要配置
+    - tag尽量精简而全
+    - 阅读顺序从上往下
 
 ### 配置
 把插件，导航，侧边栏，友链分离出去.[^1]
@@ -94,27 +95,27 @@ tags:
 套娃也不能按文件夹套，无法设置路径，只能在一个文件夹里手动分
 ## 插件
 插件都是文档上给的，插件一定要["plugins",{attribute:aaa}]这样引入，否则报错
-#### 评论
+### 评论
 上次评论用的Vaillne，又更新服务了没法用了还得绑定手机号，直接换Vssue用github  
 [参考页面 | Vssue](https://vssue.js.org/zh/guide/github.html)很简单照着[文档](https://vuepress-theme-reco.recoluan.com/views/plugins/comments.html#vssue)把东西填上就好了，他的评论是储在指定的repo的issue里，所以最好直接扔github，repo只需要填repo名字就行。
-#### 复制按钮
+### 复制按钮
 `vuepress-plugin-nuggets-style-copy`  
 代码块添加复制按钮，直接引入用就行了，就俩参数不用配置,代码直接去文件里看
-#### 看板娘
+### 看板娘
 `@vuepress-reco/vuepress-plugin-kan-ban-niang`  
 有些模型是不能使用了，找找能用的主题，theme设置为单字符串就可以  
 不是普通的看板娘插件，必须是theme-reco的看板娘插件
-#### TOC目录插件
+### TOC目录插件
 `@vuepress/plugin-toc@next`
 提供一个目录 (table-of-contents, TOC) 组件。  
 默认是toc代码块用(四个点的)渲染，用脚本直接更改为双括号[\[toc]\] 就可以在vuepress中渲染
-#### 中文md转拼音路径
+### 中文md转拼音路径
 `npm install -D  vuepress-plugin-permalink-pinyin`
 vuepress不支持当文件名含有中文时，对应页面无法跳转，可通过如下插件解决这个问题，这个插件会将中文路径转换为拼音路径
-#### 禁用静态文件转码
+### 禁用静态文件转码
 `cnpm i markdown-it-disable-url-encode` [^5]
 图片和附件含有中文时会被编码导致读不出来，配置之后就可以了
-#### 全文检索插件[^6]
+### 全文检索插件[^6]
 `cnpm i vuepress-plugin-fulltext-search`  
 默认情况下，搜索关键字的结果是下划线的，没有高亮。修改文件`.vuepress/styles/index.styl`
 ```
@@ -162,13 +163,14 @@ plugins: [
     -  二级标题添加anchor前标
     - CSS调整侧边栏字号
     - 自定义介绍页面的CSS去掉标题栏[^4]
+    - 自定义css去掉侧边栏，把内容左对齐，以便非系列连续文章使用
 - 写个脚本兼容语法
-#### 错误
+### 错误
 猜测是编译时目录层级过多，导致错误[^7]，但build的网页可以正常使用
 
 [^1]: [vuepress-theme-reco主题优化 | 小弋の阅览室](https://lovelijunyi.gitee.io/blog/blogs/vuepress/vuepress-theme-reco%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96.html#%E5%89%8D%E8%A8%80)  
 [^2]: [vuepress-theme-reco主题魔改 | 小弋の生活馆](https://lovelijunyi.gitee.io/posts/6b66.html)  
-[^3]:  [从零实现一个 VuePress 插件 - SegmentFault 思否](https://segmentfault.com/a/1190000041285750)  
+[^3]: [从零实现一个 VuePress 插件 - SegmentFault 思否](https://segmentfault.com/a/1190000041285750)  
 [^4]: [默认主题配置 | VuePress](https://vuepress.vuejs.org/zh/theme/default-theme-config.html#%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8)  
 [^5]: [Vuepress 图片资源中文路径问题 - SegmentFault 思否](https://segmentfault.com/a/1190000022275001)  
 [^6]: [Vuepress配置全文搜索插件fulltext-sarch | 二丫讲梵](https://wiki.eryajf.net/pages/8aafb1/)  
