@@ -2,9 +2,9 @@
 title: CSAPP
 date: 2022-03-16 15:02
 categories:
-- CSAPP
+- 课程
 tags:
-- 未完成
+- 操作系统
 ---
 
 <!-- more -->

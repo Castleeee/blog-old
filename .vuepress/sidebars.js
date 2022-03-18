@@ -8,10 +8,10 @@ module.exports ={
     "/blogs/python/shu-ju-wa-jue/": getDocPath('/blogs/python/shu-ju-wa-jue/'),
     "/blogs/python/pa-chong/":['基础爬虫','Scrapy爬虫','Scrapy-Django联动爬虫','Scrapy-redis分布式爬虫'],
     "/blogs/python/yu-fa-he-ku/":['python语法技巧','python语言进阶','py踩坑记录','pyautogui'],
-    "/blogs/Courses/ji-suan-ji-wang-luo-zi-ding-xiang-xia/": getDocPath('/blogs/Courses/ji-suan-ji-wang-luo-zi-ding-xiang-xia/'),
-    "/blogs/Courses/wang-dao-cao-zuo-xi-tong/": getDocPath('/blogs/Courses/wang-dao-cao-zuo-xi-tong/'),
-    "/blogs/Courses/wang-dao-shu-ju-jie-gou/": getDocPath('/blogs/Courses/wang-dao-shu-ju-jie-gou/'),
-    "/blogs/Courses/CSAPP/": getDocPath('/blogs/Courses/CSAPP/'),
-    "/blogs/Courses/Sql-bi-zhi-bi-hui/": getDocPath('/blogs/Courses/Sql-bi-zhi-bi-hui/'),
+    "/Courses/ji-suan-ji-wang-luo-zi-ding-xiang-xia/": getDocPath('/Courses/ji-suan-ji-wang-luo-zi-ding-xiang-xia/'),
+    "/Courses/wang-dao-cao-zuo-xi-tong/": getDocPath('/Courses/wang-dao-cao-zuo-xi-tong/'),
+    "/Courses/wang-dao-shu-ju-jie-gou/": getDocPath('/Courses/wang-dao-shu-ju-jie-gou/'),
+    "/Courses/CSAPP/": getDocPath('/Courses/CSAPP/'),
+    "/Courses/Sql-bi-zhi-bi-hui/": getDocPath('/Courses/Sql-bi-zhi-bi-hui/'),
 
 }

@@ -22,6 +22,7 @@ module.exports = {
         "content": "width=device-width,initial-scale=1,user-scalable=no"
       }
     ],
+    ["script", {"language": "javascript", "type": "text/javascript", "src": "/js/pgmanor-self.js"}]
   ],
   "theme": "reco",
   "themeConfig": {

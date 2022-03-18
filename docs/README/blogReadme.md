@@ -40,6 +40,8 @@ tags:
 - publish: false/true 是否发布
 - sticky 接受数字，降序排列(大在前)置顶
 - pageClass:自定义本页css，我用来写非系列连续文章**next和prev已经失效了**
+    - custom-guide-page-class 去掉顶栏作者和标题
+    - custom-series-page-class 去掉侧边栏以形成连续非系列文章
 -  keys 可多个密码，必须字符串，默认加密只是将页定位到实际内容上方，加密本身是没有什么作用的
 - categories 可以用中文，类似于系列，只要新出现的都会自动创建，可以一篇文章多个category
 - tags 标签可以用中文，vuepress只会解析metadata里的[标签](./Obsidian.md#^d604fe)，可以用Tag Wrangler插件管理
@@ -61,14 +63,68 @@ tags:
 4. \<!-- more --> 之上的是文章简介，~~其实可以搭配:::使用但是Obsidian里面不渲染，有点突兀~~ 自己写脚本解决了
 5. 标签和分类
     - 成系列的文章放一个categories
-    - 不成系列的categories只按语言分类
+    - categories分类
+        - 课程，书和电影，语言分类，工具安利，随笔，代码之外，剩下的按技术方向
     - 非系列连续文章也需要配置
     - tag尽量精简而全
     - 阅读顺序从上往下
+6. 已经全配置好了，展示组件也写好了
+:::warning Warning
+Card给的id一定要和ThreePageJson里面的id匹配，最好还能和课程名字匹配  
+图床做了baseUrl在`/.vuepress/public/js/pgmanor-self`换地址要记得修改  
+sidebarConfig的路径是博客里的路径不要混了，希望自动生成就[],不然自己配置顺序  
+去除侧边栏连续非系列文章看下面  
+:::
+
+## 自己修改文件
+### 脚本规格说明书
+脚本规格说明书：
+
+**拼装**  
+笔记路径->博客路径:  
+/others/安利 -> /docs/guids/安利  
+/others/随笔 -> /docs/guids/随笔
+
+/blogs -> /blogs
+
+/Courses -> /Courses
+
+/others/FilmBookReview -> /blogs/FilmBookReview  
+/others/Personalwiki -> /blogs/Personalwiki  
+/others/社科读书笔记 -> /blogs/社科读书笔记
+
+res/Site-map.svg -> /docs/README/static/Site-map.svg  
+res/introduction/Courses -> /docs/guids/Courses  
+res/introduction/FilmBookReview -> /docs/guids/FilmBookReview  
+res/introduction/SocialScienceReadingNotes -> /docs/guids/SocialScienceReadingNotes
+
+**执行语法兼容转化**:   
+/docs/guids/随笔  
+/docs/guids/安利  
+/blogs
+
+生成sidebar请查看sidebarConfig
+
+### 魔改
+太多了，写得有点乱  
+本来想启用和文档一样的博客，发现怎么也搞不出来，要问的东西太多了，而且我的文档好像也和别人的不太一样，干脆就自己写了个按钮，直接强制定位到那里了，在首页readme.md  
+参照[这两篇](https://lovelijunyi.gitee.io/posts/6b66.html)顺便修改了一下CSS，就完事了。  [^2]
+- 首页添加了按钮
+    - 直接写了个插件解决的[^3]，放在了包里
+- 写了个展示卡，用来展示连续的课程
+- 插件，层级目录独立出js来
+    - 魔改了一个自动生成最多二级大侧边栏的js，可以直接配置了
+- index.styl和palette.styl样式文件修改css
+    -  二级标题添加anchor前标
+    - CSS调整侧边栏字号
+    - 自定义介绍页面的CSS去掉标题栏[^4]
+    - 自定义css去掉侧边栏，把内容左对齐，以便非系列连续文章使用
+- 写个脚本兼容语法
+
 
 ### 配置
 把插件，导航，侧边栏，友链分离出去.[^1]
-#### 侧边栏
+**侧边栏**  
 注意[开启侧边栏](https://vuepress-theme-reco.recoluan.com/views/1.x/sidebar.html):subSidebar: 'auto'  
 "sidebar"现在只能通过配置config来展示多篇文章集合，集合文件夹下README.md是首页，首页配置时为""  
 大标题栏在config->"themeConfig"->"sidebar"里面配置,配置之后会按照数组直接有前后页。
@@ -91,8 +147,9 @@ tags:
 ```
 
 大标题栏的子标题类似[文档](https://vuepress-theme-reco.recoluan.com/views/plugins/comments.html#vssue)这样  
-侧边栏可以分组，children里面是可以进行一个娃的套的,例子已经注释了起来，sidebarDepth默认设置4就行  
+侧边栏可以分组，children里面是可以进行一个娃的套的,例子已经注释了起来，sidebarDepth默认设置2就行  
 套娃也不能按文件夹套，无法设置路径，只能在一个文件夹里手动分
+
 ## 插件
 插件都是文档上给的，插件一定要["plugins",{attribute:aaa}]这样引入，否则报错
 ### 评论
@@ -152,21 +209,11 @@ plugins: [
 
 ```
 
-## 自己修改文件
-本来想启用和文档一样的博客，发现怎么也搞不出来，要问的东西太多了，而且我的文档好像也和别人的不太一样，干脆就自己写了个按钮，直接强制定位到那里了，在首页readme.md  
-参照[这两篇](https://lovelijunyi.gitee.io/posts/6b66.html)顺便修改了一下CSS，就完事了。  [^2]
-- 首页添加了按钮
-    - 直接写了个插件解决的[^3]，放在了包里
-- 插件，层级目录独立出js来
-    - 魔改了一个自动生成最多二级大侧边栏的js，可以直接配置了
-- index.styl和palette.styl样式文件修改css
-    -  二级标题添加anchor前标
-    - CSS调整侧边栏字号
-    - 自定义介绍页面的CSS去掉标题栏[^4]
-    - 自定义css去掉侧边栏，把内容左对齐，以便非系列连续文章使用
-- 写个脚本兼容语法
 ### 错误
-猜测是编译时目录层级过多，导致错误[^7]，但build的网页可以正常使用
+猜测是编译时目录层级过多，导致错误[^7]，但build的网页可以正常使用  
+找到原因了，是vue-router的和侧边栏原因
+- package.json里面vue-router版本指定^3.5.3,渲染不出错[^8]
+    - `TypeError: vue.defineComponent is not a function`
 
 [^1]: [vuepress-theme-reco主题优化 | 小弋の阅览室](https://lovelijunyi.gitee.io/blog/blogs/vuepress/vuepress-theme-reco%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96.html#%E5%89%8D%E8%A8%80)  
 [^2]: [vuepress-theme-reco主题魔改 | 小弋の生活馆](https://lovelijunyi.gitee.io/posts/6b66.html)  
@@ -174,4 +221,5 @@ plugins: [
 [^4]: [默认主题配置 | VuePress](https://vuepress.vuejs.org/zh/theme/default-theme-config.html#%E9%A1%B5%E9%9D%A2%E6%BB%9A%E5%8A%A8)  
 [^5]: [Vuepress 图片资源中文路径问题 - SegmentFault 思否](https://segmentfault.com/a/1190000022275001)  
 [^6]: [Vuepress配置全文搜索插件fulltext-sarch | 二丫讲梵](https://wiki.eryajf.net/pages/8aafb1/)  
-[^7]: [vuepress编译时报错TypeError _normalized undefined的解决 | 二丫讲梵](https://wiki.eryajf.net/pages/32108f/)
+[^7]: [vuepress编译时报错TypeError _normalized undefined的解决 | 二丫讲梵](https://wiki.eryajf.net/pages/32108f/)  
+[^8]: [vue vue-router 版本不兼容导致 (TypeError: vue.defineComponent is not a function) - 简书](https://www.jianshu.com/p/38f4676a8365)  
