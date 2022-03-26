@@ -35,7 +35,7 @@ sudo vim /etc/apt/sources.list
 ```
 把所有内容注释掉，把下面这些地址粘贴进去
 
-:::details example
+:::details Click to see more
 
 ```
 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse

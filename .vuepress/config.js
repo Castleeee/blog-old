@@ -47,7 +47,7 @@ module.exports = {
     "author": "HI,JACK",
     "authorAvatar": "/avatar.png",
     "record": "会走路的三百块",
-    "startYear": "2022",
+    "startYear": "2019",
     "subSidebar": "auto",
     "sidebarDepth": 4,
     // 默认值是 true 。设置为 false 来禁用所有页面的 下一篇 链接

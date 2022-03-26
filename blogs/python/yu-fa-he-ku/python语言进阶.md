@@ -269,7 +269,7 @@ next(test1)
 
 ```
 
-:::details example
+:::details Click to see more
 
     i
     it
@@ -547,7 +547,7 @@ with gett() as sample:
     sample.hah()
     print(sample.S)
 ```
-:::details example
+:::details Click to see more
 
     start
     <class 'NoneType'>
@@ -972,7 +972,7 @@ if __name__ == "__main__":
     #     print(i)
 ```
 
-:::details example
+:::details Click to see more
 
      12           0 LOAD_CONST               1 (1)
                   2 YIELD_VALUE
@@ -1049,7 +1049,7 @@ if __name__ == "__main__":
             print(i)
 ```
 
-:::details example
+:::details Click to see more
 
     sdfghRSXCSYDVASYEDCRAVSBWDYGT
     exrsadcsvydbasfygv7aysdsaidbas9dunb
@@ -1277,7 +1277,7 @@ if __name__ == "__main__":
         t.start()#开始一个线程
 ```
 
-:::details example
+:::details Click to see more
 
     Hi False
      你好线程
@@ -1517,7 +1517,7 @@ if __name__=="__main__":
         p.start()
 ```
 
-:::details example
+:::details Click to see more
 
     make!make!
 
