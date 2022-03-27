@@ -139,6 +139,7 @@ compose文件都起好了，安装然后就行了
     - url列表`/BlogUpdate` 自动拉取并部署博客
     - 把DeployActions下的conf配置文件扔到/etc/supervisor/conf.d，systemctl重启supervisor之后就可以supervisorctl start webhook。[^12]
     - 部署flask[^11]，测试完毕后就上线，做好备份。进入receiveWebHooks直接`nohup python receiveHook.py > flask.log 2>&1 &`。不会有人闲着没事攻击我的webhook吧，就算是攻击反正也是返回字符串，应该顶得住。
+    - 兜兜转转添加一个yandex的邮件服务器，smtp自动发送邮件[^13]
 - Yapi（扔）以后扔穿透过来
 - filerun代替nextcloud
 ### 域名配置
@@ -186,4 +187,5 @@ github有个答案
 [^9]: [当虚拟目录不是在80端口且打开ssl时出错 ssl_error_rx_record_too_long _ikmb的博客-CSDN博客](https://blog.csdn.net/ikmb/article/details/3863705)  
 [^10]: [GitHub - chaifeng/ufw-docker: To fix the Docker and UFW security flaw without disabling iptables](https://github.com/chaifeng/ufw-docker#%E8%A7%A3%E5%86%B3-ufw-%E5%92%8C-docker-%E7%9A%84%E9%97%AE%E9%A2%98)  
 [^11]: [supervisord 部署 Flask](https://liqiang.io/post/deploy-flask-gunicorn-by-supervisord)  
-[^12]: [supervisor多个env变量 | Gary Wu](https://garywu520.github.io/2021/03/15/supervisor%E5%A4%9A%E4%B8%AAenv%E5%8F%98%E9%87%8F/)  
+[^12]: [supervisor多个env变量 | Gary Wu](https://garywu520.github.io/2021/03/15/supervisor%E5%A4%9A%E4%B8%AAenv%E5%8F%98%E9%87%8F/)   
+[^13]: [Just a moment...](https://ednovas.xyz/2022/02/08/yandexdomainmail/#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D).  
