@@ -112,34 +112,36 @@ compose文件都起好了，安装然后就行了
 :::
 ### 启动服务
 - [portainer](https://docs.portainer.io/)
-    - 端口 8003:8000web 管理端口 8002:9000 9443:9443通信端口
-    - 域名 admin.docker;portainer
-    - 这个没有composer，现用现开，要提前创建volume
-    - 如果web出现not found，就开9000映射到8003我也不知道干啥的映射了就能用[^6]
+  - 端口 8003:8000不知道干嘛的端口 8002:9000web 管理端口 9443:9443通信端口
+  - 域名 admindocker;portainer
+  - 这个没有composer，现用现开，要提前创建volume
+  - 如果web出现not found，就开9000映射到8003我也不知道干啥的映射了就能用[^6]
 - 博客 主NginxwebUI
-    - 端口 8005管理
-    - 域名 admin.nginx
+  - 端口 8005管理
+  - 域名 admin.nginx
 - zfile图床
-    - 端口 8004
-    - 域名 static
-    - [使用3.2版本不要用3.2.1](https://github.com/zhaojun1998/zfile/issues/327) 短链管理会出错
+  - 端口 8004
+  - 域名 static
+  - [使用3.2版本不要用3.2.1](https://github.com/zhaojun1998/zfile/issues/327) 短链管理会出错
 - gitea自建git
-    - 端口 8000 ssh端口8001
-    - 域名 git需要在控制台改，ssh不能分流
-    - 客户端加入这个命令否则无法复制会显示ssl证书过期`git config --global http.sslVerify false`
-    - ssh不能用，http能用
-    - 邮件不能用
+  - 端口 8000web访问 ssh端口默认用22了，本应该直接ssh能复制，现在不行。
+  - 域名 git需要在控制台改，ssh不能分流
+  - 客户端加入这个命令否则无法复制会显示ssl证书过期`git config --global http.sslVerify false`
+  - ssh不能用，http能用
+  - 邮件不能用
 - [nps](https://www.bilibili.com/video/BV1X44y1n7Te)内网穿透
-    - 端口 8006web端口 8007桥接client bridge代理 8008http 8009https[^8]
-    - 域名 nps \*.nps
+  - 端口 8006web端口 8007桥接client bridge代理 8008http 8009https[^8]
+  - 域名 nps \*.nps
 - webhook
-    - 端口 8010
-    - 目前用来自动拉取博客，以后可能会有更大作用
-    - flask+supervisor部署，nginx转发
-    - url列表`/BlogUpdate` 自动拉取并部署博客
-    - 把DeployActions下的conf配置文件扔到/etc/supervisor/conf.d，systemctl重启supervisor之后就可以supervisorctl start webhook。[^12]
-    - 部署flask[^11]，测试完毕后就上线，做好备份。进入receiveWebHooks直接`nohup python receiveHook.py > flask.log 2>&1 &`。不会有人闲着没事攻击我的webhook吧，就算是攻击反正也是返回字符串，应该顶得住。
-    - 兜兜转转添加一个yandex的邮件服务器，smtp自动发送邮件[^13]
+  - 端口 8010
+  - 目前用来自动拉取博客，以后可能会有更大作用
+  - flask+supervisor部署，nginx转发
+  - url列表`/BlogUpdate` 自动拉取并部署博客
+  - 把DeployActions下的conf配置文件扔到/etc/supervisor/conf.d，systemctl重启supervisor之后就可以supervisorctl start webhook。[^12]
+  - 部署flask[^11]，测试完毕后就上线，做好备份。进入receiveWebHooks直接`nohup python receiveHook.py > flask.log 2>&1 &`。不会有人闲着没事攻击我的webhook吧，就算是攻击反正也是返回字符串，应该顶得住。
+  - 顶不住了，小身板编译都费劲，以后移到群辉[^15]
+  - ~~兜兜转转添加一个yandex的邮件服务器，smtp自动发送邮件[^13]~~
+- 自建邮件docker[^14]，不安全，有时间考虑用群辉替代，端口8001:25，只有一个SMTP功能，没有任何安全校验，注意发出去大概率会被认为是垃圾邮件，反正我自己用，添加白名单就行
 - Yapi（扔）以后扔穿透过来
 - filerun代替nextcloud
 ### 域名配置
@@ -171,7 +173,10 @@ github有个答案
 - v2ray.conf 映射进去
 - nginx 中include
 - 别忘了开bbr
-::: tip
+
+本质上就是nginx把访问这个路径的流量转发到本地v2监听的端口，流量的参数注意要对齐。
+
+:::tip
 不要试图修改证书和移动证书位置，不要上传，直接映射，不然没法续期，这东西很脆弱。  
 把本地的nginx关了并禁止自动启动，修改update_ssl.sh不要让它启动本地的nginx
 :::
@@ -187,5 +192,7 @@ github有个答案
 [^9]: [当虚拟目录不是在80端口且打开ssl时出错 ssl_error_rx_record_too_long _ikmb的博客-CSDN博客](https://blog.csdn.net/ikmb/article/details/3863705)  
 [^10]: [GitHub - chaifeng/ufw-docker: To fix the Docker and UFW security flaw without disabling iptables](https://github.com/chaifeng/ufw-docker#%E8%A7%A3%E5%86%B3-ufw-%E5%92%8C-docker-%E7%9A%84%E9%97%AE%E9%A2%98)  
 [^11]: [supervisord 部署 Flask](https://liqiang.io/post/deploy-flask-gunicorn-by-supervisord)  
-[^12]: [supervisor多个env变量 | Gary Wu](https://garywu520.github.io/2021/03/15/supervisor%E5%A4%9A%E4%B8%AAenv%E5%8F%98%E9%87%8F/)   
+[^12]: [supervisor多个env变量 | Gary Wu](https://garywu520.github.io/2021/03/15/supervisor%E5%A4%9A%E4%B8%AAenv%E5%8F%98%E9%87%8F/)  
 [^13]: [Just a moment...](https://ednovas.xyz/2022/02/08/yandexdomainmail/#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D).  
+[^14]: [使用Docker搭建SMTP服务器 - Jeff.Chen的技术博客](https://chenqing24.github.io/tech_tutorial/linux%E5%B7%A5%E5%85%B7/smtp_docker/)  
+[^15]: [升级到umi 3.1.0 打包项目卡死，不知道为什么，哪位大佬给看下 · Issue #4423 · umijs/umi · GitHub](https://github.com/umijs/umi/issues/4423)
