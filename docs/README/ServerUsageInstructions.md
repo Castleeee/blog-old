@@ -127,8 +127,8 @@ compose文件都起好了，安装然后就行了
   - 端口 8000web访问 ssh端口默认用22了，本应该直接ssh能复制，现在不行。
   - 域名 git需要在控制台改，ssh不能分流
   - 客户端加入这个命令否则无法复制会显示ssl证书过期`git config --global http.sslVerify false`
-  - ssh不能用，http能用
-  - 邮件不能用
+  - ssh是用来克隆私有仓库的，添加key才能用，http能用
+  - 邮件不能用(以后用群辉)
 - [nps](https://www.bilibili.com/video/BV1X44y1n7Te)内网穿透
   - 端口 8006web端口 8007桥接client bridge代理 8008http 8009https[^8]
   - 域名 nps \*.nps
