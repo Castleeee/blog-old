@@ -140,7 +140,7 @@ ws.run "ubuntu1804 run sudo /etc/init.wsl start", vbhide
 :::
 
 ## OhMyZSH
-
+^dddc45
 这是一个好用的shell命令行有很多插件。（确定不是因为好看才装的？  
 ### 安装ZHS和oh my zsh
 ssh连接以后是这样的，但是很丑啊。。。自动补全跳转啥的都不好用。
@@ -182,7 +182,7 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 
 ```
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 ```
 **ubuntu安装autojump**
 ```
@@ -195,7 +195,7 @@ git clone git://github.com/joelthelion/autojump.git
 cd autojump
 ./install.py
 ```
-需要把`[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh`添加到`~/.zshrc`文件尾。  
+需要把`[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh`添加到`~/.zshrc`文件尾，他会有提示。  
 一定要添加到文件尾，不要在中间！之后就可以用 ***j*** 直接跳转了  
 **编辑文件`~/.zshrc`**
 - 添加 export DEFAULT_USER="whoami"
@@ -203,7 +203,7 @@ cd autojump
 - 修改插件(放心修改不会变卡😂
 
 ```
-plugins=(git extract ruby gem rails rvm python pip django npm node scala docker ant gradle golang redis-cli colored-man-pages zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git extract ruby gem rails rvm python pip npm node scala docker ant gradle golang redis-cli colored-man-pages zsh-syntax-highlighting zsh-autosuggestions)
 ```  
 
 - 修改 ZSH_THEME="powerlevel9k/powerlevel9k"
