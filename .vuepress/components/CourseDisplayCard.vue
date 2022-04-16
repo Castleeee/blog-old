@@ -17,7 +17,6 @@
 </template>
 
 <script>
-require("../public/js/pgmanor-self")
 import axios from 'axios'
 export default {
   name: "CourseDisplayCard",
@@ -41,7 +40,7 @@ export default {
   methods: {
     getData() {
       axios.get('/introduction/'+this.id+'.json').then(response => {
-        this.cover=baseUrl+response.data.cover // 图床地址额外配置在/.vuepress/public/js/pgmanor-self
+        this.cover=response.data.cover // 图床地址额外配置在/.vuepress/public/js/pgmanor-self
         this.description=response.data.description
         this.rate=response.data.rate
         this.startTime=response.data.startTime

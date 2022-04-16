@@ -356,8 +356,7 @@ A()
     TypeError: Can't instantiate abstract class A with abstract methods my
 
 :::danger ⚡️Danger
-️其实有一点不太明白 留坑  
-abc中强制规定了abstractmethod，继承时若不实现这一方法就无法实例化  
+**其实有一点不太明白 留坑  **<br/>abc中强制规定了abstractmethod，继承时若不实现这一方法就无法实例化  
 from collections.abc import *  
 已经做好的一些基类可以拿来继承  
 实现了__subclasshook__用于类型判断  
@@ -711,8 +710,7 @@ dict是一个典型Mapping类型，abc继承关系是
         ValuesView as ValuesView,  
 
 :::warning ⚠️Warning
-️copy
-深拷贝改变拷贝对象不会改变原对象，只要拷贝的对象是非容器类型（比如字符串，数字和其他原子类型）就不能进行拷贝而是添加引用
+**copy**<br/>深拷贝改变拷贝对象不会改变原对象，只要拷贝的对象是非容器类型（比如字符串，数字和其他原子类型）就不能进行拷贝而是添加引用
 :::
 这是代码
 ```python
@@ -757,8 +755,7 @@ s.difference(d)#比较两个set的不同，取差集，是一个新的set，主�
 ```
     {'a', 'abc', 'b', 'c'}
 :::tip 📌Tip
-️垃圾回收  
-python中的垃圾回收算法是引用计数，一个变量有n个引用，当引用计数变为 0 即回收垃圾，del函数可完成更高级的垃圾回收
+**垃圾回收  **<br/>python中的垃圾回收算法是引用计数，一个变量有n个引用，当引用计数变为 0 即回收垃圾，del函数可完成更高级的垃圾回收
 参数绝对不能用可变对象（list）
 注意环形引用问题
 :::

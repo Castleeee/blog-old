@@ -90,7 +90,7 @@ C盘至少给80个G，我的surface上给了78个G，电脑上给了85，可能s
   - 不能开启本地回环，这个软件会连不上网
 - **Trello**(团队协作板)
 - **Ubuntu** 18.04(WSL)
-  - 在我<a href="https://ooowl.fun/blog/back/linux/windows%E5%AD%90%E7%B3%BB%E7%BB%9F.html#%E5%AE%89%E8%A3%85">另一篇</a>里有介绍
+  - 在我[另一篇](./windows子系统)里有介绍
 - 萌娘百科UWP
 - **wechat**（微信）UWP微信只能扫码登陆，傻吊设计，需要先登陆一次
 - **QQ音乐**(不常用)
@@ -139,7 +139,7 @@ C盘至少给80个G，我的surface上给了78个G，电脑上给了85，可能s
 - 用win10小工具禁用defender，卸载Onedrive和原生应用。
 - 编辑host(C:\windows\system32\drivers\etc),加入 ***0.0.0.0 account.jetbrains.com 和 127.0.0.1 www.xmind.net***
 - 关闭安全警告，自行百度
-- 开启WSL，链接<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10?redirectedfrom=MSDN">在这</a>，配置WSL<a href="https://ooowl.fun/blog/back/linux/windows子系统.html">在这</a>。
+- 开启WSL，链接<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10?redirectedfrom=MSDN">在这</a>，配置WSL在这。
 - WindowsLoopbackManager或者使用Fiddler中的config，修改本地回环使得UWP应用能使用本地的网络。
 ### 默认文件app
 1. pdf默认使用SumatraPDF
@@ -387,44 +387,44 @@ mklink /J "C:\Program Files\Common Files\Adobe" "D:\Adobe\Common Files\Adobe"
 Win+R(services.msc)优化服务(不需要的就关掉):
 
 
-| 服务                                       | 作用&设置                            |
-|:-----------------------------------------|:---------------------------------|
-| Adobe Genuine Monitor Service            |                                  |
-| Adobe Genuine Software Integrity Service |                                  |
-| BitLocker Drive Encryption Service       |                                  |
-| CAJ Service Host                         | 手动                               |
-| Certificate Propagation                  | 手动                               |
+| 服务                                     | 作用&设置                                              |
+|:---------------------------------------- |:------------------------------------------------------ |
+| Adobe Genuine Monitor Service            |                                                        |
+| Adobe Genuine Software Integrity Service |                                                        |
+| BitLocker Drive Encryption Service       |                                                        |
+| CAJ Service Host                         | 手动                                                   |
+| Certificate Propagation                  | 手动                                                   |
 | Contact Data 63c78b                      | 如果停止或禁用此服务，你的搜索结果中可能会缺少联系人。 |
-| Developer Tools Service                  | 远程UWP调试                          |
-| Diagnostic Execution Service             | 策略诊断                             |
-| Diagnostic Policy Service                |  策略诊断                            |
-| Diagnostic Service Host                  |  策略诊断                            |
-| Diagnostic System Host                   | 策略诊断                             |
-| Docker Desktop Service                   | 手动                               |
-| Function Discovery Resource Publication  |                                  |
-| Google Update Service(gupdate)           |                                  |
-| Google Update Service(gupdatem)          |                                  |
-| ntel(R)HD Graphics Control Panel Service |                                  |
-| MessagingService 63c78b                  |                                  |
-| Microsoft（R）                             | 诊断中心标准收集器服务                      |
-| Offline Files                            |                                  |
-| Phone Service                            |                                  |
-| QPCore Service                           |                                  |
-| Quality Windows Audio Video Experience   |                                  |
-| SangforSP 手动                             |                                  |
-| Shared PC Account Manager                |                                  |
-| shell Hardware Detection                 |                                  |
-| Smart Card                               |                                  |
-| Smart Card Device Enumeration Service    |                                  |
-| Smart Card Removal Policy                |                                  |
-| TeamViewer 14                            | 手动                               |
-| WalletService                            |                                  |
-| Windows Error Reporting Service          |                                  |
-| Windows Search                           |                                  |
-| Workstation                              | 手动                               |
-| XLServicePlatform                        | 手动                               |
-| 家长控制                                     |                                  |
-| 建议疑难解答服务                                 |                                  |
+| Developer Tools Service                  | 远程UWP调试                                            |
+| Diagnostic Execution Service             | 策略诊断                                               |
+| Diagnostic Policy Service                | 策略诊断                                               |
+| Diagnostic Service Host                  | 策略诊断                                               |
+| Diagnostic System Host                   | 策略诊断                                               |
+| Docker Desktop Service                   | 手动                                                   |
+| Function Discovery Resource Publication  |                                                        |
+| Google Update Service(gupdate)           |                                                        |
+| Google Update Service(gupdatem)          |                                                        |
+| ntel(R)HD Graphics Control Panel Service |                                                        |
+| MessagingService 63c78b                  |                                                        |
+| Microsoft（R）                           | 诊断中心标准收集器服务                                 |
+| Offline Files                            |                                                        |
+| Phone Service                            |                                                        |
+| QPCore Service                           |                                                        |
+| Quality Windows Audio Video Experience   |                                                        |
+| SangforSP 手动                           |                                                        |
+| Shared PC Account Manager                |                                                        |
+| shell Hardware Detection                 |                                                        |
+| Smart Card                               |                                                        |
+| Smart Card Device Enumeration Service    |                                                        |
+| Smart Card Removal Policy                |                                                        |
+| TeamViewer 14                            | 手动                                                   |
+| WalletService                            |                                                        |
+| Windows Error Reporting Service          |                                                        |
+| Windows Search                           |                                                        |
+| Workstation                              | 手动                                                   |
+| XLServicePlatform                        | 手动                                                   |
+| 家长控制                                 |                                                        |
+| 建议疑难解答服务                         |                                                        |
 
 
 - 所有工作做完之后用Dism++ 在做最后调整。

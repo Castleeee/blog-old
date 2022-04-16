@@ -191,7 +191,7 @@ sudo apt-get install autojump
 需要把`. /usr/share/autojump/autojump.sh`添加到`~/.zshrc`文件尾。  
 **centos安装autojump**
 ```sh
-git clone git://github.com/joelthelion/autojump.git
+git clone https://github.com/joelthelion/autojump.git
 cd autojump
 ./install.py
 ```

@@ -128,8 +128,7 @@ pyautogui.hotkey('ctrl', 'v')  # 再粘贴
 ```
 ## PyHook
 :::warning ⚠️Warning
-️注意环境
-一般使用pyhook3但是pyhook并不支持python3    
+**注意环境**<br/>一般使用pyhook3但是pyhook并不支持python3    
 会出现错误，python3使用扩展库pyhook_py3k    
 hook不支持python3，pyhook_3k也只支持32位    
 建议用QT
@@ -196,6 +195,5 @@ if __name__ == "__main__":
   main()
 ```
 :::tip 📌Tip
-️其他方式
-PyQt5对鼠标键盘进行监听看<a href=''>这里</a>
+**其他方式**<br/>PyQt5对鼠标键盘进行监听看<a href=''>这里</a>
 :::

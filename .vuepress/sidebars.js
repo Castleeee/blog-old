@@ -12,6 +12,7 @@ module.exports ={
     "/Courses/wang-dao-cao-zuo-xi-tong/": getDocPath('/Courses/wang-dao-cao-zuo-xi-tong/'),
     "/Courses/wang-dao-shu-ju-jie-gou/": getDocPath('/Courses/wang-dao-shu-ju-jie-gou/'),
     "/Courses/CSAPP/": getDocPath('/Courses/CSAPP/'),
+    "/Courses/C primer plus/": getDocPath('/Courses/C primer plus/'),
     "/Courses/Sql-bi-zhi-bi-hui/": getDocPath('/Courses/Sql-bi-zhi-bi-hui/'),
 
 }
