@@ -95,7 +95,7 @@ sticky: 6
 - metadata信息看[博客的说明](./blogReadme.md#^18f313)， 建立vuepress文章的模板，创建新文章之后直接配置开写
 - 大附件建议都扔Onedrive放个链接
 - ==嵌入非图片jpg png svg文件的时候，文件名不要带有英文==
-- 高亮前面加一个空格才能被渲染,出问题的时候查找一下是不是 ` == ` 的问题
+- 高亮前面加一个空格才能被渲染,<span style="background:greenyellow">必须前面有空格后面没有</span>,出问题的时候查找一下是不是 ` == ` 的问题
 - dataview //TODO
 - 生成日报周报
 ## 关于环境备份
