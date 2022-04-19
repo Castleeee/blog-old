@@ -70,9 +70,10 @@ tags:
     - 阅读顺序从上往下
 6. 已经全配置好了，展示组件也写好了
 :::warning Warning
-Card给的id一定要和ThreePageJson里面的id匹配，最好还能和课程名字匹配  
-图床做了baseUrl在`/.vuepress/public/js/pgmanor-self`换地址要记得修改  
+Card给的id一定要和ThreePageJson里面的id匹配，最好还能和课程名字匹配    
+图床做了baseUrl在`/.vuepress/public/js/pgmanor-self`换地址要记得修改    
 sidebarConfig的路径是博客里的路径不要混了，希望自动生成就[],不然自己配置顺序  
+7. Course自动生成侧边栏是匹配的是regex ^第xx章 文件名以第多少章开头才会排序预留2000。  
 去除侧边栏连续非系列文章看下面  
 :::
 
