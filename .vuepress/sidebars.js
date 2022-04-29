@@ -14,5 +14,6 @@ module.exports ={
     "/Courses/CSAPP/": getDocPath('/Courses/CSAPP/'),
     "/Courses/C primer plus/": getDocPath('/Courses/C primer plus/'),
     "/Courses/Sql-bi-zhi-bi-hui/": getDocPath('/Courses/Sql-bi-zhi-bi-hui/'),
+    "/Courses/linux-ting-ke-bi-ji/": getDocPath('/Courses/linux-ting-ke-bi-ji/'),
 
 }
