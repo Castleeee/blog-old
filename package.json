@@ -8,10 +8,10 @@
   },
   "devDependencies": {
     "@vuepress/plugin-toc": "^2.0.0-beta.35",
+    "vue-router": "^3.5.3",
     "vuepress": "1.8.2",
     "vuepress-plugin-permalink-pinyin": "^1.0.0",
-    "vuepress-theme-reco": "1.6.10",
-    "vue-router": "^3.5.3"
+    "vuepress-theme-reco": "1.6.10"
   },
   "description": "blog-use-Obsidian",
   "dependencies": {

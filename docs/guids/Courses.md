@@ -32,3 +32,13 @@ marginnote中脑图是按章节分的，一个章节的文档对应一个脑图�
 
 ----------
 
+## [Java编程思想](/courses/java-bian-cheng-si-xiang/di-yi-zhang-mian-xiang-dui-xiang.html)
+<CourseDisplayCard id="java编程思想On Java 8"></CourseDisplayCard>
+
+----------
+
+## [鸟哥的Linux私房菜](/courses/niao-ge-de-linux-si-fang-cai/di-ling-zhang-ji-suan-ji-gai-lun.html)
+<CourseDisplayCard id="鸟哥的linux私房菜"></CourseDisplayCard>
+
+----------
+

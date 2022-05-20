@@ -3,7 +3,7 @@ title: Git
 date: 2019-11-5 15:16:35
 categories: 代码之外
 tags:
-- linux🐧
+- Git
 ---
 ## 工具测评
 **gitkraken**  
@@ -32,7 +32,7 @@ tags:
 **`git log (--oneline --all --graph ) `** 查看所有的提交记录，回滚需要至少7位id，-p查看提交具体干了啥,--all查看所有的分支，--graph 尽可能用图形表示。  
 **`git reflog `** 查看命令历史，以便确定要回到未来的哪个版本  
 **`git remote -v`** 查看你的远程仓库的路径  
-![](./static/git_images_1.png)
+![](./static/git-images-1.png)
 
 ### 基本的操作
 **`git clone Address `** 克隆项目  
@@ -85,7 +85,7 @@ rebase会在分支根提交点处接着提交，之后再跟上master该节点�
 **`git show (id or tag)`** 查看这次id和tag的详细信息，包括提交时间作者提交了啥等等  
 
 图解（源水印）  
-![800](./static/git_images_2.png)
+![800](./static/git-images-2.png)
 
 ### ignore语法
 史上最全的<a href='https://github.com/github/gitignore'>gitignore语法</a>模板  
@@ -114,7 +114,7 @@ passwd git
 git:x:502:504::/home/git:/bin/bash //找到这一行
 git:x:502:504::/home/git:/bin/git-shell//改为这个
 ```
-![](./static/git_images_3.png)
+![](./static/git-images-3.png)
 
 ### 添加公钥
 你也可以不添加直接ssh克隆,但是这样会每次都让你输入密码,只把开发记得公钥添加就行了  
@@ -124,7 +124,7 @@ ssh-keygen -t rsa -C "xxxxx@mail.com"
 //最后的又像是公钥里面显示的名字,自己开心就行
 ```
 这样在下就得到了一对公钥和私钥  
-![](./static/git_images_4.png)
+![](./static/git-images-4.png)
 
 编辑`id_rsa.pub`里面就是你的公钥复制下来  
 
@@ -167,12 +167,12 @@ git@192.168.0.100:/home/git/project1/test.git //SCP写法
 ssh://git@192.168.0.100/home/git/project1/test.git //SSH写法
 //Https的写法没有配置,而且每次都要输密码,团队协作不好用
 ```
-![](./static/git_images_5.png)
+![](./static/git-images-5.png)
 
 ## 工作流
 ### gitflow
 gitflow<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">工作流</a>，团队开发的范例。  
-![](./static/git_images_6.png)
+![](./static/git-images-6.png)
 
 中小型团队协作时候很重要  
 **大致注意下面这么几点**  
@@ -181,7 +181,7 @@ gitflow<a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitf
 bitbucket提供免费私人5人无限制的私有仓库，gitlab和bitbucket提供精确到分支的权限控制,但bitbucket仍然是云托管，Gitlab占资源太大需要一个好服务器才行。
 ### github工作流
 
-![](./static/git_images_7.png)
+![](./static/git-images-7.png)
 
 主要流程为:
 - 新建分支（Create a branch）

@@ -3,8 +3,6 @@ title: CSAPP
 date: 2022-03-16 15:02
 categories:
 - 课程
-tags:
-- 操作系统
 ---
 
 <!-- more -->

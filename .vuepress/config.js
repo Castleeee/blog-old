@@ -65,6 +65,7 @@ module.exports = {
   plugins,
   "markdown": {
     "lineNumbers": true,
+    toc: { includeLevel: [1, 2,3,4,5] },
     extendMarkdown: md => {
       md.use(require("markdown-it-disable-url-encode"));
     }
