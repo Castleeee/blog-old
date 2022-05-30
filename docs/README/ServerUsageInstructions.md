@@ -111,6 +111,38 @@ compose文件都起好了，安装然后就行了
 我都写了docker-compose.yml里了
 :::
 ### 启动服务
+| 端口:容器端口 | 功能                        |
+|:------------- |:--------------------------- |
+| 22:22         | gitea的ssh顶替本机的ssh     |
+| 8000:80       | gitea的web页面              |
+| 8001:25       | 轻量SMTP                    |
+| 8002:8000     | portainer不知道干嘛的端口   |
+| 8003:9000     | portainer的web页面          |
+| 8004:80       | zfile页面                   |
+| 8005:host     | nginxwebui页面              |
+| 8006:host     | nps的web页面                |
+| 8007:host     | nps的bridge端口             |
+| 8008:host     | nps的http                   |
+| 8009:host     | nps的https                  |
+| 8010          | webhook穿透到群辉的相同端口 |
+| 8011:5212     | cloudreve 的web页面&nbsp;   |
+| 8012:6800     | aria2主端口                 |
+| 8013:6888     | aria2占用                   |
+| 8013:6888/udp | aria2占用                   |
+| 8014          | nas面板群辉5000             |
+| 8015          | nas emby 8096               |
+| 8016              |    Mrdoc 觅思文当 10086                         |
+| 9443:9443     | portainer不知道干什么的端口 |
+| 22233         | ssh                         |
+
+**群辉的端口(约定优于配置)**
+
+| 端口   | 功能->服务器穿透端口 |
+|:-----|:------------------|
+| 5000 | nas面板->8014    |
+| 8096 | jellyfin->8015 |
+
+
 - [portainer](https://docs.portainer.io/)
   - 端口 8003:8000不知道干嘛的端口 8002:9000web 管理端口 9443:9443通信端口
   - 域名 admindocker;portainer
@@ -135,15 +167,40 @@ compose文件都起好了，安装然后就行了
 - webhook
   - 端口 8010
   - 目前用来自动拉取博客，以后可能会有更大作用
-  - flask+supervisor部署，nginx转发
-  - url列表`/BlogUpdate` 自动拉取并部署博客
-  - 把DeployActions下的conf配置文件扔到/etc/supervisor/conf.d，systemctl重启supervisor之后就可以supervisorctl start webhook。[^12]
+  - url列表
+    - `/BlogUpdate` 自动拉取并部署博客
   - 部署flask[^11]，测试完毕后就上线，做好备份。进入receiveWebHooks直接`nohup python receiveHook.py > flask.log 2>&1 &`。不会有人闲着没事攻击我的webhook吧，就算是攻击反正也是返回字符串，应该顶得住。
   - 顶不住了，小身板编译都费劲，以后移到群辉[^15]
-  - ~~兜兜转转添加一个yandex的邮件服务器，smtp自动发送邮件[^13]~~
-- 自建邮件docker[^14]，不安全，有时间考虑用群辉替代，端口8001:25，只有一个SMTP功能，没有任何安全校验，注意发出去大概率会被认为是垃圾邮件，反正我自己用，添加白名单就行
-- Yapi（扔）以后扔穿透过来
-- filerun代替nextcloud
+- cloudreve+aria2
+  - 端口8011
+  - 参考了[^16]docker镜像[^17]
+  - 首次启动后请执行 `docker logs -f cloudreve` 获取初始密码；
+  - 两年刷新一次
+  - aria2离线下载
+- 自建邮件docker[^14]，不安全
+  - 端口8001:25
+  - 只有一个SMTP功能，没有任何安全校验，注意发出去大概率会被认为是垃圾邮件，反正我自己用，添加白名单就行.
+- 觅思文当协作
+  - 端口8016:10086
+  - 域名md.
+- 群辉以后要有的
+  - Yapi
+  - 邮件服务器-穿
+  - jellyfin
+  - moment照片
+  - 苹果时间机器
+  - Surveillance Station监控
+  - Calibre web
+  - 导航页
+  - 博客webhook-穿
+  - HomeAssistant智能家居
+  - filerun网盘
+  - 群辉chat私人聊天
+  - drive 想办法融合onedrive
+  - cloudsync统筹一下网盘
+  - rsshub -可以穿
+  - Docker装Aria2 With WebUI
+  - smb
 ### 域名配置
 nginxWebUI里面直接添加。  
 几个资源，[自动生成配置文件](<[NGINXConfig | DigitalOcean](https://nginxconfig.io/)>)，[申请证书](https://www.bilibili.com/video/BV1Ef4y1F7Pe)。  
@@ -165,7 +222,7 @@ ssl 接收到一个超出最大准许长度的记录。 错误代码 ssl_error_r
 github有个答案
 :::
 **无法解决，就这样了，丑陋**  
-因为docker是直接添加iptables管理网络，ufw直接没用，如果手动更改它的iptables那就相当于docker的网络管理没用了，没办法，正式生产环境肯定会有网关和内部服务器，就可以完美避免了。丑陋。
+因为docker是直接添加iptables管理网络，ufw直接没用，如果手动更改它的iptables那就相当于docker的网络管理没用了，没办法，正式生产环境肯  定会有网关和内部服务器，就可以完美避免了。丑陋。
 ## 安装v2ray相关
 [参考](https://ericclose.github.io/V2Ray-TLS-WebSocket-Nginx-with-Cloudflare.html)  
 执行一键脚本
@@ -195,4 +252,6 @@ github有个答案
 [^12]: [supervisor多个env变量 | Gary Wu](https://garywu520.github.io/2021/03/15/supervisor%E5%A4%9A%E4%B8%AAenv%E5%8F%98%E9%87%8F/)  
 [^13]: [Just a moment...](https://ednovas.xyz/2022/02/08/yandexdomainmail/#%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D).  
 [^14]: [使用Docker搭建SMTP服务器 - Jeff.Chen的技术博客](https://chenqing24.github.io/tech_tutorial/linux%E5%B7%A5%E5%85%B7/smtp_docker/)  
-[^15]: [升级到umi 3.1.0 打包项目卡死，不知道为什么，哪位大佬给看下 · Issue #4423 · umijs/umi · GitHub](https://github.com/umijs/umi/issues/4423)
+[^15]: [升级到umi 3.1.0 打包项目卡死，不知道为什么，哪位大佬给看下 · Issue #4423 · umijs/umi · GitHub](https://github.com/umijs/umi/issues/4423)  
+[^16]: [利用Docker部署cloudreve+aria2实现私有网盘和离线下载](https://dongjianghan.com/archives/cloudreve)  
+[^17]: [xavierniu/cloudreve - Docker Image | Docker Hub](https://hub.docker.com/r/xavierniu/cloudreve)  
